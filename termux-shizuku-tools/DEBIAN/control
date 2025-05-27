@@ -1,0 +1,9 @@
+Package: termux-shizuku-tools
+Version: 1.0
+Architecture: all
+Maintainer: AlexeiCrystal
+Description: Helps Termux get access to Shizuku
+Depends: bash, coreutils
+Section: utils
+Priority: optional
+Homepage: https://github.com/AlexeiCrystal/termux-shizuku-tools
