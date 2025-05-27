@@ -1,8 +1,0 @@
-#!/data/data/com.termux/files/usr/bin
-
-chmod 755 $PREFIX/bin/shizuku
-chmod 755 $PREFIX/bin/shizuku-setup
-chmod 755 $PREFIX/bin/shizuku-desetup
-chmod 755 $PREFIX/bin/shizuku-help
-echo 'Package termux-shizuku-tools by AlexeiCrystal installed!' 
-echo 'For a list of commands, run "shizuku-help"'
