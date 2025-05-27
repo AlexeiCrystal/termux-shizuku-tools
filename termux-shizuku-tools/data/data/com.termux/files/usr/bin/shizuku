@@ -1,0 +1,13 @@
+#!/data/data/com.termux/files/usr/bin
+
+if [ ! -f "$HOME/rish" ]; then
+    echo 'Termux access to Shizuku is not set up. To complete setup, run "shizuku-setup"'
+    exit 1
+fi
+
+if [ ! -f "$HOME/rish_shizuku.dex" ]; then
+    echo 'Termux access to Shizuku is not set up. To complete setup, run "shizuku-setup"'
+    exit 1
+fi
+
+sh $HOME/rish
