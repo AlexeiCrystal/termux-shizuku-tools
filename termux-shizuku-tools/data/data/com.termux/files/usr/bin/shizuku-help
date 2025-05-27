@@ -1,0 +1,6 @@
+#!/data/data/com.termux/files/usr/bin
+
+echo "shizuku-setup – Setup Termux access to Shizuku"
+echo "shizuku-desetup – Delete Termux access to Shizuku"
+echo "shizuku – Run shizuku mode"
+echo "shizuku-help – Command list"
