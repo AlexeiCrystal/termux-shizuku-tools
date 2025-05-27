@@ -1,0 +1,4 @@
+#!/data/data/com.termux/files/usr/bin
+
+rm $HOME/rish
+rm $HOME/rish_shizuku.dex
