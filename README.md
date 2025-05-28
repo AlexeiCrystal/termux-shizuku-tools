@@ -1,6 +1,10 @@
 # Description
 Helps Termux get access to Shizuku
 
+# Requirements
+• [Shizuku](https://github.com/RikkaApps/Shizuku) installed and running
+</br>• Installed [Termux](https://github.com/termux/termux-app)
+
 # How to install
 1. Download deb file from [latest release](https://github.com/AlexeiCrystal/termux-shizuku-tools/releases/latest)
 2. Go to the directory where the file was downloaded to</br>
