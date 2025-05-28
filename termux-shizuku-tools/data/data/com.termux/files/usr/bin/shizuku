@@ -9,5 +9,5 @@ if [ ! -f "$HOME/rish_shizuku.dex" ]; then
     echo 'Termux access to Shizuku is not set up. To complete setup, run "shizuku-setup"'
     exit 1
 fi
-
+echo "Trying to run Shizuku mode..."
 sh $HOME/rish
