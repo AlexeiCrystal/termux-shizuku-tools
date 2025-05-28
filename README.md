@@ -13,3 +13,11 @@ For example:</br>
 ```
 dpkg -i termux-shizuku-tools_1.0.deb
 ```
+
+# Commands
+`shizuku-setup` – Configure Termux access to Shizuku
+`shizuku-desetup` – Deconfigure Termux access to Shizuku
+`shizuku` – Run shizuku mode
+`shizuku-help` – Command list
+
+
