@@ -1,5 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
-rm $HOME/rish
-rm $HOME/rish_shizuku.dex
+rm -rf $PREFIX/shizuku
 echo "Deconfigured successfully!"
