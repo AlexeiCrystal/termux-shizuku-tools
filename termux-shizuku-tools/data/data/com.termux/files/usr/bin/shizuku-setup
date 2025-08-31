@@ -1,5 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
+if [ -f "$HOME/rish" ]; then
+    rm "$HOME/rish"
+fi
+
+if [ -f "$HOME/rish_shizuku.dex" ]; then
+    rm "$HOME/rish_shizuku.dex"
+fi
+
 TERMPACKAGE="com.termux"
 
 mkdir $PREFIX/shizuku
