@@ -4,5 +4,5 @@ chmod 755 $PREFIX/bin/shizuku
 chmod 755 $PREFIX/bin/shizuku-setup
 chmod 755 $PREFIX/bin/shizuku-desetup
 chmod 755 $PREFIX/bin/shizuku-help
-echo 'Package termux-shizuku-tools 1.0 by AlexeiCrystal installed!' 
+echo 'Package termux-shizuku-tools 2.0 by AlexeiCrystal installed!' 
 echo 'For a list of commands, run "shizuku-help"'
