@@ -1,5 +1,2 @@
 termux-shizuku-tools/DEBIAN/postinst linguist-language=Shell
-termux-shizuku-tools/data/data/com.termux/files/usr/bin/shizuku linguist-language=Shell
-termux-shizuku-tools/data/data/com.termux/files/usr/bin/shizuku-desetup linguist-language=Shell
-termux-shizuku-tools/data/data/com.termux/files/usr/bin/shizuku-setup linguist-language=Shell
-termux-shizuku-tools/data/data/com.termux/files/usr/bin/shizuku-help linguist-language=Shell
+termux-shizuku-tools/data/data/com.termux/files/usr/bin/* linguist-language=Shell
