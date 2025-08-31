@@ -29,10 +29,10 @@ dpkg -i termux-shizuku-tools_1.0.deb
 
 2. Unzip archive</br>
 
-3. Copy `termux-shizuku-tools` folder in main `termux-shizuku-tools` folder to Termux home directory
+3. Copy `termux-shizuku-tools` folder in main `termux-shizuku-tools-main` folder to Termux home directory
 </br>For example:</br>
 ```
-cp -r /sdcard/Download/termux-shizuku-tools/termux-shizuku-tools $HOME
+cp -r /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools $HOME
 ```
 
 </br>4. Grant needed permissions to `termux-shizuku-tools/DEBIAN` and `termux-shizuku-tools/DEBIAN/postinst`
