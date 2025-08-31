@@ -8,5 +8,6 @@ chmod 755 $PREFIX/bin/shizuku-info
 
 shizuku-setup
 
+echo " "
 echo 'Package termux-shizuku-tools 2.0 by AlexeiCrystal installed!' 
 echo 'For a list of commands, run "shizuku-help"'
