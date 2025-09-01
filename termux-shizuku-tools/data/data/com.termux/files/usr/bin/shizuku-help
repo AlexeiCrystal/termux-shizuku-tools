@@ -6,3 +6,4 @@ echo "shizuku – Run shizuku mode"
 echo "shizuku-info – Check package (termux-shizuku-tools) info and Shizuku info"
 echo "shizuku-open – Open Shizuku app"
 echo "shizuku-help – Command list"
+echo 'Instead of "shizuku" in command names, you can use the abbreviated word "shk"'
