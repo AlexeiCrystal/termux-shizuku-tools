@@ -1,4 +1,4 @@
-[English](/README.MD) | Русский
+[English](/README.md) | Русский
 
 # Описание
 Позволяет Termux получить доступ к Shizuku
