@@ -21,7 +21,7 @@ fi
 
 echo "Package name: termux-shizuku-tools"
 echo "Package author: AlexeiCrystal"
-echo "Package (termux-shizuku-tools) version: $TERMUX_SHIZUKU_TOOLS_VERSION"
+echo "Package version: $TERMUX_SHIZUKU_TOOLS_VERSION"
 echo "Shizuku is installed: $SHIZUKU_INSTALLED"
 echo "Shizuku version code: $SHIZUKU_VERSION_CODE"
 echo "Termux access to Shizuku is configured: $SHIZUKU_ACCESS_CONFIGURED (rish: $RISH_FILE_EXISTS, rish_shizuku.dex: $RISH_DEX_FILE_EXISTS)"
