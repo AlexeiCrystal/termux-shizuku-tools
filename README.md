@@ -22,7 +22,10 @@ dpkg -i termux-shizuku-tools_1.0.deb
 `shizuku-setup` – Configure Termux access to Shizuku</br>
 `shizuku-desetup` – Deconfigure Termux access to Shizuku</br>
 `shizuku` – Run shizuku mode</br>
-`shizuku-help` – Command list
+`shizuku-info` – Check package (termux-shizuku-tools) info and Shizuku info</br>
+`shizuku-open` – Open Shizuku app</br>
+`shizuku-help` – Command list</br>
+Instead of `shizuku` in command names, you can use the abbreviated word `shk`
 
 # How to build
 1. Download [repository as zip](https://github.com/AlexeiCrystal/termux-shizuku-tools/archive/refs/heads/main.zip)</br>
