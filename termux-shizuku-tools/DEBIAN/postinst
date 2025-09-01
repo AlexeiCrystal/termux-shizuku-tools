@@ -5,6 +5,7 @@ chmod 755 $PREFIX/bin/shizuku-setup
 chmod 755 $PREFIX/bin/shizuku-desetup
 chmod 755 $PREFIX/bin/shizuku-help
 chmod 755 $PREFIX/bin/shizuku-info
+chmod 755 $PREFIX/bin/shizuku-open
 
 shizuku-setup
 
