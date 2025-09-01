@@ -6,6 +6,12 @@ chmod 755 $PREFIX/bin/shizuku-desetup
 chmod 755 $PREFIX/bin/shizuku-help
 chmod 755 $PREFIX/bin/shizuku-info
 chmod 755 $PREFIX/bin/shizuku-open
+chmod 755 $PREFIX/bin/shk
+chmod 755 $PREFIX/bin/shk-setup
+chmod 755 $PREFIX/bin/shk-desetup
+chmod 755 $PREFIX/bin/shk-help
+chmod 755 $PREFIX/bin/shk-info
+chmod 755 $PREFIX/bin/shk-open
 
 shizuku-setup
 
