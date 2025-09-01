@@ -9,5 +9,13 @@ if [ ! -f "$PREFIX/shizuku/rish_shizuku.dex" ]; then
     echo 'Termux access to Shizuku is not configured. To configure, run "shizuku-setup"'
     exit 1
 fi
+
+SHIZUKU_INSTALLED=$(cmd package list packages | grep -q "package:moe.shizuku.privileged.api" && echo "True" || echo "False")
+
+if [ "$SHIZUKU_INSTALLED" = "False" ]; then
+   echo "Shizuku not installed!"
+   exit 1
+fi
+
 echo "Trying to run Shizuku mode..."
 sh $PREFIX/shizuku/rish
