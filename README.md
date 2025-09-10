@@ -6,7 +6,7 @@ English | [Русский](/README-ru.md)</br></br>
 [![GitHub](https://img.shields.io/github/license/AlexeiCrystal/termux-shizuku-tools)](https://github.com/AlexeiCrystal/termux-shizuku-tools/blob/main/LICENCE.md)
 [![GitHub Repo stars](https://img.shields.io/github/stars/AlexeiCrystal/termux-shizuku-tools?style=social)](https://github.com/AlexeiCrystal/termux-shizuku-tools/stargazers)
 # Description
-Helps Termux get access to Shizuku
+Helps [Termux](https://github.com/termux/termux-app) get access to [Shizuku](https://github.com/RikkaApps/Shizuku)
 
 # Requirements
 • [Shizuku](https://github.com/RikkaApps/Shizuku) installed and running
