@@ -8,12 +8,13 @@ is_shizuku_installed() {
     fi
 }
 
+shizuku_version_code() {
+    if is_shizuku_installed; then
+        cmd package list packages --show-versioncode | grep "package:moe.shizuku.privileged.api versionCode:" | awk -F':' '{print $NF}'
+    else
+        echo "-1"
+    fi
+}
+
 export is_shizuku_installed
-
-if is_shizuku_installed; then
-    SHIZUKU_VERSION_CODE=$(cmd package list packages --show-versioncode | grep "package:moe.shizuku.privileged.api versionCode:" | awk -F':' '{print $NF}')
-else
-    SHIZUKU_VERSION_CODE="-1"
-fi
-
-export SHIZUKU_VERSION_CODE
+export shizuku_version_code
