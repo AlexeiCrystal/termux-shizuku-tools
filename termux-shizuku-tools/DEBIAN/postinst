@@ -4,10 +4,11 @@ chmod 755 $PREFIX/bin/shizuku
 chmod 755 $PREFIX/bin/shizuku-help
 chmod 755 $PREFIX/bin/shizuku-info
 chmod 755 $PREFIX/bin/shizuku-open
-chmod 755 $PREFIX/bin/shk
-chmod 755 $PREFIX/bin/shk-help
-chmod 755 $PREFIX/bin/shk-info
-chmod 755 $PREFIX/bin/shk-open
+
+ln -s $PREFIX/bin/shizuku $PREFIX/bin/shk
+ln -s $PREFIX/bin/shizuku-help $PREFIX/bin/shk-help
+ln -s $PREFIX/bin/shizuku-info $PREFIX/bin/shk-info
+ln -s $PREFIX/bin/shizuku-open $PREFIX/bin/shk-open
 
 echo " "
 echo 'Package termux-shizuku-tools 2.0 by AlexeiCrystal installed!' 
