@@ -7,6 +7,31 @@ chmod 755 $PREFIX/bin/shizuku-open
 chmod 755 $PREFIX/shizuku/rish
 chmod 755 $PREFIX/shizuku/shizuku_functions.sh
 
+if [ -f "$PREFIX/bin/shk" ]; then
+    rm -rf "$PREFIX/bin/shk"
+fi
+if [ -f "$PREFIX/bin/shk-help" ]; then
+    rm -rf "$PREFIX/bin/shk-help"
+fi
+if [ -f "$PREFIX/bin/shk-info" ]; then
+    rm -rf "$PREFIX/bin/shk-info"
+fi
+if [ -f "$PREFIX/bin/shk-open" ]; then
+    rm -rf "$PREFIX/bin/shk-open"
+fi
+if [ -f "$PREFIX/bin/shk-setup" ]; then
+    rm -rf "$PREFIX/bin/shk-setup"
+fi
+if [ -f "$PREFIX/bin/shk-desetup" ]; then
+    rm -rf "$PREFIX/bin/shk-desetup"
+fi
+if [ -f "$PREFIX/bin/shizuku-setup" ]; then
+    rm -rf "$PREFIX/bin/shizuku-setup"
+fi
+if [ -f "$PREFIX/bin/shizuku-desetup" ]; then
+    rm -rf "$PREFIX/bin/shizuku-desetup"
+fi
+
 ln -s $PREFIX/bin/shizuku $PREFIX/bin/shk
 ln -s $PREFIX/bin/shizuku-help $PREFIX/bin/shk-help
 ln -s $PREFIX/bin/shizuku-info $PREFIX/bin/shk-info
