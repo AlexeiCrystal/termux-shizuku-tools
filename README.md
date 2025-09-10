@@ -60,5 +60,5 @@ dpkg-deb --build $HOME/termux-shizuku-tools
 ```
 dpkg -i $HOME/termux-shizuku-tools.deb
 ```
-## Star History
+# Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=AlexeiCrystal/termux-shizuku-tools&type=Date)](https://www.star-history.com/#AlexeiCrystal/termux-shizuku-tools&Date)
