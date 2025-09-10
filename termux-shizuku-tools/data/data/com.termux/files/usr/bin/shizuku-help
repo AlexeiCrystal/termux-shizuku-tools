@@ -1,7 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
-echo "shizuku-setup – Configure Termux access to Shizuku"
-echo "shizuku-desetup – Deconfigure Termux access to Shizuku"
 echo "shizuku – Run shizuku mode"
 echo "shizuku-info – Check package (termux-shizuku-tools) info and Shizuku info"
 echo "shizuku-open – Open Shizuku app"
