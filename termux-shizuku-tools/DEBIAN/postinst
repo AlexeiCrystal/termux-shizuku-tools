@@ -1,19 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 chmod 755 $PREFIX/bin/shizuku
-chmod 755 $PREFIX/bin/shizuku-setup
-chmod 755 $PREFIX/bin/shizuku-desetup
 chmod 755 $PREFIX/bin/shizuku-help
 chmod 755 $PREFIX/bin/shizuku-info
 chmod 755 $PREFIX/bin/shizuku-open
 chmod 755 $PREFIX/bin/shk
-chmod 755 $PREFIX/bin/shk-setup
-chmod 755 $PREFIX/bin/shk-desetup
 chmod 755 $PREFIX/bin/shk-help
 chmod 755 $PREFIX/bin/shk-info
 chmod 755 $PREFIX/bin/shk-open
-
-shizuku-setup
 
 echo " "
 echo 'Package termux-shizuku-tools 2.0 by AlexeiCrystal installed!' 
