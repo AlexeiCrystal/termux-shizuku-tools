@@ -27,8 +27,8 @@ body:
       label: termux-shizuku-tools Version
       description: Select the version of termux-shizuku-tools package
       options:
-        - "1.0"
         - "2.0"
+        - "1.0"
     validations:
       required: true
 
@@ -75,7 +75,7 @@ body:
         ```
       render: shell
 
-  - type: input
+  - type: textarea
     id: rish_files
     attributes:
       label: Rish Files
@@ -85,5 +85,5 @@ body:
         2. Start Shizuku if not running
         3. Go to "Use Shizuku in terminal apps"
         4. Click "Export files"
-        5. Attach the exported files here
+        5. Attach the exported files here by dragging & dropping
       placeholder: "Drag & drop rish and rish_shizuku.dex files here"
