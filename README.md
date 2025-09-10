@@ -1,5 +1,10 @@
-English | [Русский](/README-ru.md)
-
+English | [Русский](/README-ru.md)</br></br>
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/AlexeiCrystal/termux-shizuku-tools)](https://github.com/AlexeiCrystal/termux-shizuku-tools/releases/latest)
+[![GitHub All Releases](https://img.shields.io/github/downloads/AlexeiCrystal/termux-shizuku-tools/total)](https://github.com/AlexeiCrystal/termux-shizuku-tools/releases)
+[![GitHub issues](https://img.shields.io/github/issues/AlexeiCrystal/termux-shizuku-tools)](https://github.com/AlexeiCrystal/termux-shizuku-tools/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/AlexeiCrystal/termux-shizuku-tools)](https://github.com/AlexeiCrystal/termux-shizuku-tools/pulls)
+[![GitHub](https://img.shields.io/github/license/AlexeiCrystal/termux-shizuku-tools)](https://github.com/AlexeiCrystal/termux-shizuku-tools/blob/main/LICENCE.md)
+[![GitHub Repo stars](https://img.shields.io/github/stars/AlexeiCrystal/termux-shizuku-tools?style=social)](https://github.com/AlexeiCrystal/termux-shizuku-tools/stargazers)
 # Description
 Helps Termux get access to Shizuku
 
