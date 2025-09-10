@@ -8,7 +8,7 @@
 [![Звёзды](https://img.shields.io/github/stars/AlexeiCrystal/termux-shizuku-tools?style=social&label=%D0%97%D0%B2%D1%91%D0%B7%D0%B4%D1%8B)](https://github.com/AlexeiCrystal/termux-shizuku-tools/stargazers)
 
 # Описание
-Позволяет Termux получить доступ к Shizuku
+Позволяет [Termux](https://github.com/termux/termux-app) получить доступ к [Shizuku](https://github.com/RikkaApps/Shizuku)
 
 # Требования
 • Установленное и запущенное приложение [Shizuku](https://github.com/RikkaApps/Shizuku)
