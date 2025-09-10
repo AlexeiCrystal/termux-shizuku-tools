@@ -1,0 +1,89 @@
+name: Bug Report
+description: Bug report for termux-shizuku-tools package
+labels: ["bug"]
+
+body:
+  - type: input
+    id: shizuku_version
+    attributes:
+      label: Shizuku Version
+      description: What version of Shizuku are you using?
+      placeholder: "e.g., 13.5.4.r1085.4f23d7c"
+    validations:
+      required: true
+
+  - type: input
+    id: termux_version
+    attributes:
+      label: Termux Version
+      description: What version of Termux are you using?
+      placeholder: "e.g., 0.118.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: package_version
+    attributes:
+      label: termux-shizuku-tools Version
+      description: Select the version of termux-shizuku-tools package
+      options:
+        - "1.0"
+        - "2.0"
+    validations:
+      required: true
+
+  - type: input
+    id: android_version
+    attributes:
+      label: Android Version
+      description: What version of Android are you running?
+      placeholder: "e.g., Android 13, API 33"
+    validations:
+      required: true
+
+  - type: input
+    id: device_model
+    attributes:
+      label: Device Model
+      description: What is your device model?
+      placeholder: "e.g., Samsung Galaxy S23, Xiaomi Redmi Note 10"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_description
+    attributes:
+      label: Problem Description
+      description: |
+        Please describe the problem in detail. Include steps to reproduce if possible.
+        You can attach screenshots or files by dragging & dropping them here.
+      placeholder: |
+        Describe what happened, what you expected to happen, and steps to reproduce the issue...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        If you have logs from Termux terminal output, please paste them here.
+        Wrap code blocks with triple backticks for better formatting.
+      value: |
+        ```
+        Paste your logs here...
+        ```
+      render: shell
+
+  - type: input
+    id: rish_files
+    attributes:
+      label: Rish Files
+      description: |
+        If the issue is related to shizuku/shk command execution, please export and attach rish files:
+        1. Open Shizuku app
+        2. Start Shizuku if not running
+        3. Go to "Use Shizuku in terminal apps"
+        4. Click "Export files"
+        5. Attach the exported files here
+      placeholder: "Drag & drop rish and rish_shizuku.dex files here"
