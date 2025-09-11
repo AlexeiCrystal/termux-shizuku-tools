@@ -7,3 +7,4 @@ Depends: bash, coreutils
 Section: utils
 Priority: optional
 Homepage: https://github.com/AlexeiCrystal/termux-shizuku-tools
+
