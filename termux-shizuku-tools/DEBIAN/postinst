@@ -4,6 +4,7 @@ chmod 755 $PREFIX/bin/shizuku
 chmod 755 $PREFIX/bin/shizuku-help
 chmod 755 $PREFIX/bin/shizuku-info
 chmod 755 $PREFIX/bin/shizuku-open
+chmod 755 $PREFIX/bin/shizuku-stop
 chmod 755 $PREFIX/shizuku/rish
 chmod 755 $PREFIX/shizuku/shizuku_functions.sh
 
@@ -36,6 +37,7 @@ ln -s $PREFIX/bin/shizuku $PREFIX/bin/shk
 ln -s $PREFIX/bin/shizuku-help $PREFIX/bin/shk-help
 ln -s $PREFIX/bin/shizuku-info $PREFIX/bin/shk-info
 ln -s $PREFIX/bin/shizuku-open $PREFIX/bin/shk-open
+ln -s $PREFIX/bin/shizuku-stop $PREFIX/bin/shk-stop
 
 . $PREFIX/shizuku/shizuku_functions.sh
 
