@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 termux_shizuku_tools_version() {
-    echo "3.0"
+    dpkg -s termux-shizuku-tools | grep 'Version:' | awk '{print $2}'
 }
 
 termux_shizuku_tools_directory() {
