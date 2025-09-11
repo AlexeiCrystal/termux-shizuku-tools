@@ -27,7 +27,7 @@ dpkg -i termux-shizuku-tools_2.0.deb
 
 # Commands
 `shizuku` – Run interactive shizuku shell mode</br>
-`shizuku <command>` – Execute command via Shizuku
+`shizuku <command>` – Execute command via Shizuku</br>
 `shizuku-info` – Check package (termux-shizuku-tools) info and Shizuku info</br>
 `shizuku-open` – Open Shizuku app</br>
 `shizuku-help` – Command list</br>
