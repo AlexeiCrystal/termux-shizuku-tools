@@ -1,0 +1,12 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+if [ ! -f "$PREFIX/shizuku/shizuku_functions.sh" ]; then
+    echo 'shizuku_functions.sh file not found. Please reinstall package!'
+    exit 1
+fi
+
+. $PREFIX/shizuku/shizuku_functions.sh
+
+echo "Stopping Shizuku server..."
+
+stop_shizuku_server
