@@ -30,6 +30,7 @@ dpkg -i termux-shizuku-tools_2.0.deb
 `shizuku <command>` – Execute command via Shizuku</br>
 `shizuku-info` – Check package (termux-shizuku-tools) info and Shizuku info</br>
 `shizuku-open` – Open Shizuku app</br>
+`shizuku-stop` – Stop Shizuku server</br>
 `shizuku-help` – Command list</br>
 Instead of `shizuku` in command names, you can use the abbreviated word `shk`
 
