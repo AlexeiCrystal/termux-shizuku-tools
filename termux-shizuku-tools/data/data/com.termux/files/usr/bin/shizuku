@@ -1,21 +1,28 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
-if [ ! -f "$PREFIX/shizuku/rish" ]; then
-    echo 'Termux access to Shizuku is not configured. To configure, run "shizuku-setup"'
+if [ ! -f "$PREFIX/shizuku/shizuku_functions.sh" ]; then
+    echo 'shizuku_functions.sh file not found. Please reinstall package!'
     exit 1
 fi
 
-if [ ! -f "$PREFIX/shizuku/rish_shizuku.dex" ]; then
-    echo 'Termux access to Shizuku is not configured. To configure, run "shizuku-setup"'
+. $PREFIX/shizuku/shizuku_functions.sh
+
+THIS_PKG_PATH=$(termux_shizuku_tools_directory)
+
+if [ ! -f "$THIS_PKG_PATH/rish" ]; then
+    echo 'rish file not found. Please reinstall package!'
     exit 1
 fi
 
-SHIZUKU_INSTALLED=$(cmd package list packages | grep -q "package:moe.shizuku.privileged.api" && echo "True" || echo "False")
+if [ ! -f "$THIS_PKG_PATH/rish_shizuku.dex" ]; then
+    echo 'rish_shizuku.dex file not found. Please reinstall package!'
+    exit 1
+fi
 
-if [ "$SHIZUKU_INSTALLED" = "False" ]; then
+if [ $(is_shizuku_installed) = "false" ]; then
    echo "Shizuku not installed!"
    exit 1
 fi
 
 echo "Trying to run Shizuku mode..."
-sh $PREFIX/shizuku/rish
+sh $THIS_PKG_PATH/rish

@@ -1,17 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
-TERMUX_SHIZUKU_TOOLS_VERSION="2.0"
-
-SHIZUKU_INSTALLED=$(cmd package list packages | grep -q "package:moe.shizuku.privileged.api" && echo "True" || echo "False")
-
-if [ "$SHIZUKU_INSTALLED" = "True" ]; then
-    SHIZUKU_VERSION_CODE=$(cmd package list packages --show-versioncode | grep "package:moe.shizuku.privileged.api versionCode:" | awk -F':' '{print $NF}')
-else
-    SHIZUKU_VERSION_CODE="Unknown"
+if [ ! -f "$PREFIX/shizuku/shizuku_functions.sh" ]; then
+    echo 'shizuku_functions.sh file not found. Please reinstall package!'
+    exit 1
 fi
 
-RISH_FILE_EXISTS=$( [ -f "$PREFIX/shizuku/rish" ] && echo "True" || echo "False" )
-RISH_DEX_FILE_EXISTS=$( [ -f "$PREFIX/shizuku/rish_shizuku.dex" ] && echo "True" || echo "False" )
+. $PREFIX/shizuku/shizuku_functions.sh
+
+THIS_PKG_DIR=$(termux_shizuku_tools_directory)
+
+RISH_FILE_EXISTS=$( [ -f "$THIS_PKG_DIR/rish" ] && echo "True" || echo "False" )
+RISH_DEX_FILE_EXISTS=$( [ -f "$THIS_PKG_DIR/rish_shizuku.dex" ] && echo "True" || echo "False" )
 
 if [ "$RISH_FILE_EXISTS" = "True" ] && [ "$RISH_DEX_FILE_EXISTS" = "True" ]; then
     SHIZUKU_ACCESS_CONFIGURED="True"
@@ -19,10 +18,11 @@ else
     SHIZUKU_ACCESS_CONFIGURED="False"
 fi
 
+echo "Shizuku is installed: $(is_shizuku_installed)"
+echo "Shizuku version code: $(shizuku_version_code)"
+echo "Termux access to Shizuku is configured: $SHIZUKU_ACCESS_CONFIGURED (rish: $RISH_FILE_EXISTS, rish_shizuku.dex: $RISH_DEX_FILE_EXISTS)"
+echo " "
 echo "Package name: termux-shizuku-tools"
 echo "Package author: AlexeiCrystal"
-echo "Package version: $TERMUX_SHIZUKU_TOOLS_VERSION"
+echo "Package version: $(termux_shizuku_tools_version)"
 echo "Package GitHub: https://github.com/AlexeiCrystal/termux-shizuku-tools"
-echo "Shizuku is installed: $SHIZUKU_INSTALLED"
-echo "Shizuku version code: $SHIZUKU_VERSION_CODE"
-echo "Termux access to Shizuku is configured: $SHIZUKU_ACCESS_CONFIGURED (rish: $RISH_FILE_EXISTS, rish_shizuku.dex: $RISH_DEX_FILE_EXISTS)"

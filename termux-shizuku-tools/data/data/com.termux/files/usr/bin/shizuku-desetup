@@ -1,4 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/sh
-
-rm -rf $PREFIX/shizuku
-echo "Deconfigured successfully!"

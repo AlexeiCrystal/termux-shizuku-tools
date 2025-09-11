@@ -1,11 +1,15 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
-echo "Opening Shizuku..."
+if [ ! -f "$PREFIX/shizuku/shizuku_functions.sh" ]; then
+    echo 'shizuku_functions.sh file not found. Please reinstall package!'
+    exit 1
+fi
 
-SHIZUKU_INSTALLED=$(cmd package list packages | grep -q "package:moe.shizuku.privileged.api" && echo "True" || echo "False")
+. $PREFIX/shizuku/shizuku_functions.sh
 
-if [ "$SHIZUKU_INSTALLED" = "True" ]; then
-   am start -n moe.shizuku.privileged.api/moe.shizuku.manager.MainActivity 
+if [ $(is_shizuku_installed) = "true" ]; then
+   echo "Opening Shizuku..."
+   open_shizuku
 else
    echo "Shizuku not installed!"
 fi

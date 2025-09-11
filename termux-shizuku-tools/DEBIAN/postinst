@@ -1,20 +1,44 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 chmod 755 $PREFIX/bin/shizuku
-chmod 755 $PREFIX/bin/shizuku-setup
-chmod 755 $PREFIX/bin/shizuku-desetup
 chmod 755 $PREFIX/bin/shizuku-help
 chmod 755 $PREFIX/bin/shizuku-info
 chmod 755 $PREFIX/bin/shizuku-open
-chmod 755 $PREFIX/bin/shk
-chmod 755 $PREFIX/bin/shk-setup
-chmod 755 $PREFIX/bin/shk-desetup
-chmod 755 $PREFIX/bin/shk-help
-chmod 755 $PREFIX/bin/shk-info
-chmod 755 $PREFIX/bin/shk-open
+chmod 755 $PREFIX/shizuku/rish
+chmod 755 $PREFIX/shizuku/shizuku_functions.sh
 
-shizuku-setup
+if [ -f "$PREFIX/bin/shk" ]; then
+    rm -rf "$PREFIX/bin/shk"
+fi
+if [ -f "$PREFIX/bin/shk-help" ]; then
+    rm -rf "$PREFIX/bin/shk-help"
+fi
+if [ -f "$PREFIX/bin/shk-info" ]; then
+    rm -rf "$PREFIX/bin/shk-info"
+fi
+if [ -f "$PREFIX/bin/shk-open" ]; then
+    rm -rf "$PREFIX/bin/shk-open"
+fi
+if [ -f "$PREFIX/bin/shk-setup" ]; then
+    rm -rf "$PREFIX/bin/shk-setup"
+fi
+if [ -f "$PREFIX/bin/shk-desetup" ]; then
+    rm -rf "$PREFIX/bin/shk-desetup"
+fi
+if [ -f "$PREFIX/bin/shizuku-setup" ]; then
+    rm -rf "$PREFIX/bin/shizuku-setup"
+fi
+if [ -f "$PREFIX/bin/shizuku-desetup" ]; then
+    rm -rf "$PREFIX/bin/shizuku-desetup"
+fi
+
+ln -s $PREFIX/bin/shizuku $PREFIX/bin/shk
+ln -s $PREFIX/bin/shizuku-help $PREFIX/bin/shk-help
+ln -s $PREFIX/bin/shizuku-info $PREFIX/bin/shk-info
+ln -s $PREFIX/bin/shizuku-open $PREFIX/bin/shk-open
+
+. $PREFIX/shizuku/shizuku_functions.sh
 
 echo " "
-echo 'Package termux-shizuku-tools 2.0 by AlexeiCrystal installed!' 
+echo "Package termux-shizuku-tools $(termux_shizuku_tools_version) by AlexeiCrystal installed!"
 echo 'For a list of commands, run "shizuku-help"'
