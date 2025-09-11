@@ -4,6 +4,10 @@ termux_shizuku_tools_version() {
     dpkg -s termux-shizuku-tools | grep '^Version:' | awk '{print $2}'
 }
 
+termux_shizuku_tools_version_code() {
+    dpkg -s termux-shizuku-tools | grep '^X-Version-Code:' | awk '{print $2}'
+}
+
 termux_shizuku_tools_directory() {
     echo "$PREFIX/shizuku"
 }
@@ -38,3 +42,4 @@ export is_shizuku_installed
 export shizuku_version_code
 export execute_shizuku_command
 export open_shizuku
+export termux_shizuku_tools_version_code
