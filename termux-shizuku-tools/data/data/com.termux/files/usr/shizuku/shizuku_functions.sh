@@ -28,8 +28,13 @@ execute_shizuku_command() {
     $PREFIX/shizuku/rish -c "$1"
 }
 
+open_shizuku() {
+    am start -n moe.shizuku.privileged.api/moe.shizuku.manager.MainActivity > /dev/null
+}
+
 export termux_shizuku_tools_version
 export termux_shizuku_tools_directory
 export is_shizuku_installed
 export shizuku_version_code
 export execute_shizuku_command
+export open_shizuku
