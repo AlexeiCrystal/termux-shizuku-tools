@@ -33,9 +33,14 @@ execute_shizuku_command() {
 }
 
 open_shizuku() {
-    am start -n moe.shizuku.privileged.api/moe.shizuku.manager.MainActivity > /dev/null
+    am start -n moe.shizuku.privileged.api/moe.shizuku.manager.MainActivity
 }
 
+stop_shizuku_server() {
+    execute_shizuku_command "kill \$(pidof shizuku_server)"
+}
+
+export stop_shizuku_server
 export termux_shizuku_tools_version
 export termux_shizuku_tools_directory
 export is_shizuku_installed
