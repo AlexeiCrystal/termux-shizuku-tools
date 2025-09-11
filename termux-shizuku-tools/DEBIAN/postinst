@@ -40,5 +40,5 @@ ln -s $PREFIX/bin/shizuku-open $PREFIX/bin/shk-open
 . $PREFIX/shizuku/shizuku_functions.sh
 
 echo " "
-echo "Package termux-shizuku-tools $(termux_shizuku_tools_version) by AlexeiCrystal installed!"
+echo "Package termux-shizuku-tools $(termux_shizuku_tools_version) ($(termux_shizuku_tools_version_code)) by AlexeiCrystal installed!"
 echo 'For a list of commands, run "shizuku-help"'
