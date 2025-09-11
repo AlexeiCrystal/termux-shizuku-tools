@@ -24,5 +24,10 @@ if [ $(is_shizuku_installed) = "false" ]; then
    exit 1
 fi
 
-echo "Trying to run Shizuku mode..."
-sh $THIS_PKG_PATH/rish
+if [ $# -gt 0 ]; then
+    command="$@"
+    execute_shizuku_command "$command"
+else
+    echo "Trying to run Shizuku mode..."
+    sh $THIS_PKG_PATH/rish
+fi
