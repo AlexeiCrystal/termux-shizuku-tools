@@ -26,9 +26,8 @@ dpkg -i termux-shizuku-tools_2.0.deb
 ```
 
 # Commands
-`shizuku-setup` – Configure Termux access to Shizuku</br>
-`shizuku-desetup` – Deconfigure Termux access to Shizuku</br>
-`shizuku` – Run shizuku mode</br>
+`shizuku` – Run interactive shizuku shell mode</br>
+`shizuku <command>` – Execute command via Shizuku
 `shizuku-info` – Check package (termux-shizuku-tools) info and Shizuku info</br>
 `shizuku-open` – Open Shizuku app</br>
 `shizuku-help` – Command list</br>
