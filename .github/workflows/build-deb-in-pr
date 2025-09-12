@@ -1,0 +1,29 @@
+name: Build termux-shizuku-tools Debian package
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build-deb:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code from PR branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Build Debian package from termux-shizuku-tools
+      run: |
+        cd termux-shizuku-tools
+        chmod -R 755 DEBIAN
+        dpkg-deb --build . ../termux-shizuku-tools.deb
+        chmod 755 ../termux-shizuku-tools.deb
+
+    - name: Upload Debian package artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: termux-shizuku-tools.deb
+        path: termux-shizuku-tools.deb
