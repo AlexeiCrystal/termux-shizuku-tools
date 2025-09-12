@@ -9,6 +9,7 @@ fi
 
 echo "Is Shizuku installed: $(is_shizuku_installed)"
 echo "Shizuku version code: $(shizuku_version_code)"
+echo "Is Shizuku server running: $(is_shizuku_server_running)"
 
 echo " "
 echo "Package name: termux-shizuku-tools"
