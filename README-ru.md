@@ -19,16 +19,12 @@
 2. Перейдите в каталог, куда был скачан файл</br>
 Например:</br>
 ```
-
 cd /sdcard/Download
-
 ```
 3. Установите пакет</br>
 Например:</br>
 ```
-
-dpkg -i termux-shizuku-tools_2.0.deb
-
+dpkg -i termux-shizuku-tools_3.0.deb
 ```
 
 # Команды
@@ -48,38 +44,28 @@ dpkg -i termux-shizuku-tools_2.0.deb
 3. Скопируйте папку `termux-shizuku-tools` из основной папки `termux-shizuku-tools-main` в домашний каталог Termux
 </br>Например:</br>
 ```
-
 cp -r /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools $HOME
-
 ```
 
 </br>4. Предоставьте необходимые разрешения для `termux-shizuku-tools/DEBIAN` и `termux-shizuku-tools/DEBIAN/postinst`
 </br>Например:
 ```
-
 chmod 755 $HOME/termux-shizuku-tools/DEBIAN
-
 ```
 ```
-
 chmod 755 $HOME/termux-shizuku-tools/DEBIAN/postinst
-
 ```
 
 </br>5. Соберите пакет
 </br>Например:
 ```
-
 dpkg-deb --build $HOME/termux-shizuku-tools
-
 ```
 
 </br>6. Установите пакет
 </br>Например:
 ```
-
 dpkg -i $HOME/termux-shizuku-tools.deb
-
 ```
 
 # История звёзд
