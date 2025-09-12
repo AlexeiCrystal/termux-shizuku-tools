@@ -39,7 +39,7 @@ execute_shizuku_command() {
 export execute_shizuku_command
 
 open_shizuku() {
-    am start -n moe.shizuku.privileged.api/moe.shizuku.manager.MainActivity
+    am start -n moe.shizuku.privileged.api/moe.shizuku.manager.MainActivity > /dev/null 2>&1
 }
 export open_shizuku
 
@@ -49,7 +49,7 @@ stop_shizuku_server() {
 export stop_shizuku_server
 
 is_shizuku_server_running() {
-    CMD_OUTPUT=$(execute_shizuku_command "echo shizuku_server_check")
+    CMD_OUTPUT=$(execute_shizuku_command "echo shizuku_server_check") > /dev/null 2>&1
     
     if [ "$CMD_OUTPUT" = "shizuku_server_check" ]; then
         echo "true"
