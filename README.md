@@ -23,7 +23,7 @@ cd /sdcard/Download
 3. Install package  
 For example:  
 ```
-dpkg -i termux-shizuku-tools_3.0.deb
+dpkg -i termux-shizuku-tools_3.1.deb
 ```
 
 # Commands
