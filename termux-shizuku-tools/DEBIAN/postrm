@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+rm -f $PREFIX/bin/shk
+rm -f $PREFIX/bin/shk-help
+rm -f $PREFIX/bin/shk-info
+rm -f $PREFIX/bin/shk-open
+rm -f $PREFIX/bin/shk-stop
