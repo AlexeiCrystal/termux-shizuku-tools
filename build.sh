@@ -11,6 +11,10 @@ if [ ! -d "$CURRENT_DIR/$PKG_NAME" ]; then
 fi
 
 echo "Creating temporary directory for building package..."
+if [ ! -d "$PREFIX/tmp" ]; then
+    mkdir -p "$PREFIX/tmp"
+fi
+
 BUILD_DIR=$(mktemp -d)
 if [ ! -d "$BUILD_DIR" ]; then
     echo "Error: Temporary directory not found"
