@@ -16,8 +16,8 @@
 
 # Как установить
 1. Скачайте deb-файл из [последнего релиза](https://github.com/AlexeiCrystal/termux-shizuku-tools/releases/latest)
-2. Перейдите в каталог, куда был скачан файл</br>
-Например:</br>
+2. Перейдите в каталог, куда был скачан файл
+</br> Например:</br>
 ```
 cd /sdcard/Download
 ```
@@ -37,38 +37,16 @@ dpkg -i termux-shizuku-tools_3.0.deb
 Вместо `shizuku` в названиях команд можно использовать сокращение `shk`
 
 # Как собрать
-1. Скачайте [репозиторий в виде zip-архива](https://github.com/AlexeiCrystal/termux-shizuku-tools/archive/refs/heads/main.zip)</br>
-
-2. Разархивируйте архив</br>
-
-3. Скопируйте папку `termux-shizuku-tools` из основной папки `termux-shizuku-tools-main` в домашний каталог Termux
-</br>Например:</br>
+1. Скачайте [репозиторий как zip](https://github.com/AlexeiCrystal/termux-shizuku-tools/archive/refs/heads/main.zip)  
+2. Выполните скрипт `build.sh` в корне репозитотория
+</br>Например:  
 ```
-cp -r /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools $HOME
+sh /sdcard/Download/termux-shizuku-tools-main/build.sh
 ```
-
-</br>4. Предоставьте необходимые разрешения для `termux-shizuku-tools/DEBIAN` и `termux-shizuku-tools/DEBIAN/postinst` и `termux-shizuku-tools/postrm`
-</br>Например:
+3. Установите пакет  </br>
+Например:  
 ```
-chmod 755 $HOME/termux-shizuku-tools/DEBIAN
-```
-```
-chmod 755 $HOME/termux-shizuku-tools/DEBIAN/postinst
-```
-```
-chmod 755 $HOME/termux-shizuku-tools/DEBIAN/postrm
-```
-
-</br>5. Соберите пакет
-</br>Например:
-```
-dpkg-deb --build $HOME/termux-shizuku-tools
-```
-
-</br>6. Установите пакет
-</br>Например:
-```
-dpkg -i $HOME/termux-shizuku-tools.deb
+dpkg -i /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools.deb
 ```
 
 # История звёзд
