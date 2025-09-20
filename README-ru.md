@@ -47,13 +47,16 @@ dpkg -i termux-shizuku-tools_3.0.deb
 cp -r /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools $HOME
 ```
 
-</br>4. Предоставьте необходимые разрешения для `termux-shizuku-tools/DEBIAN` и `termux-shizuku-tools/DEBIAN/postinst`
+</br>4. Предоставьте необходимые разрешения для `termux-shizuku-tools/DEBIAN` и `termux-shizuku-tools/DEBIAN/postinst` и `termux-shizuku-tools/postrm`
 </br>Например:
 ```
 chmod 755 $HOME/termux-shizuku-tools/DEBIAN
 ```
 ```
 chmod 755 $HOME/termux-shizuku-tools/DEBIAN/postinst
+```
+```
+chmod 755 $HOME/termux-shizuku-tools/DEBIAN/postrm
 ```
 
 </br>5. Соберите пакет
