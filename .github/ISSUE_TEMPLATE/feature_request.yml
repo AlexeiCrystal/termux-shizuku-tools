@@ -1,6 +1,5 @@
 name: Feature Request
 description: Suggest an enhancement or new feature
-title: "[Enhancement]: "
 labels: ["enhancement"]
 body:
   - type: textarea
