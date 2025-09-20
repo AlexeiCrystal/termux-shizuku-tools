@@ -45,13 +45,16 @@ Instead of `shizuku` in command names, you can use the abbreviated word `shk`
 cp -r /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools $HOME
 ```
 
-</br>4. Grant needed permissions to `termux-shizuku-tools/DEBIAN` and `termux-shizuku-tools/DEBIAN/postinst`
+</br>4. Grant needed permissions to `termux-shizuku-tools/DEBIAN` and `termux-shizuku-tools/DEBIAN/postinst` and `termux-shizuku-tools/postrm`
 </br>For example:
 ```
 chmod 755 $HOME/termux-shizuku-tools/DEBIAN
 ```
 ```
 chmod 755 $HOME/termux-shizuku-tools/DEBIAN/postinst
+```
+```
+chmod 755 $HOME/termux-shizuku-tools/DEBIAN/postrm
 ```
 
 </br>5. Build package
