@@ -29,6 +29,25 @@ ln -sf $PREFIX/bin/shizuku-stop $PREFIX/bin/shk-stop
 
 . $PREFIX/shizuku/shizuku_functions.sh
 
-echo " "
-echo "Package termux-shizuku-tools $(termux_shizuku_tools_version) ($(termux_shizuku_tools_version_code)) by AlexeiCrystal installed!"
-echo 'For a list of commands, run "shizuku-help"'
+case "$1" in
+    configure)
+        if [ -n "$2" ]; then
+            IS_UPGRADE=true
+            PREVIOUS_VERSION="$2"
+            CURRENT_VERSION=$(termux_shizuku_tools_version)
+            echo " "
+            echo "Package termux-shizuku-tools updated! ($PREVIOUS_VERSION > $CURRENT_VERSION)"
+            echo 'For a list of commands, run "shizuku-help"'
+        else
+            IS_UPGRADE=false
+            PREVIOUS_VERSION=""
+            echo " "
+            echo "Package termux-shizuku-tools $(termux_shizuku_tools_version) ($(termux_shizuku_tools_version_code)) by AlexeiCrystal installed!"
+            echo 'For a list of commands, run "shizuku-help"'
+        fi
+        ;;
+    *)
+        IS_UPGRADE=false
+        PREVIOUS_VERSION=""
+        ;;
+esac
