@@ -15,12 +15,60 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
+    - name: Check required directories and files
+      run: |
+        echo "Checking project structure..."
+        
+        if [ ! -d "termux-shizuku-tools" ]; then
+          echo "❌ Error: Directory 'termux-shizuku-tools' not found"
+          echo "Current directory contents:"
+          ls -la
+          exit 1
+        fi
+        
+        if [ ! -d "termux-shizuku-tools/DEBIAN" ]; then
+          echo "❌ Error: Directory 'termux-shizuku-tools/DEBIAN' not found"
+          echo "Contents of termux-shizuku-tools:"
+          ls -la termux-shizuku-tools/
+          exit 1
+        fi
+        
+        if [ ! -f "termux-shizuku-tools/DEBIAN/control" ]; then
+          echo "❌ Error: Required file 'termux-shizuku-tools/DEBIAN/control' not found"
+          exit 1
+        fi
+        
+        echo "Checking DEBIAN directory permissions..."
+        ls -la termux-shizuku-tools/DEBIAN/
+        
+        echo "Control file contents:"
+        cat termux-shizuku-tools/DEBIAN/control
+        
+        echo "✅ All required directories and files are present"
+
     - name: Build Debian package from termux-shizuku-tools
       run: |
+        echo "Building Debian package..."
         cd termux-shizuku-tools
+        
+        echo "Setting permissions..."
         chmod -R 755 DEBIAN
+        
+        echo "Checking permissions after chmod:"
+        ls -la DEBIAN/
+        
         dpkg-deb --build . ../termux-shizuku-tools.deb
+        
+        if [ ! -f "../termux-shizuku-tools.deb" ]; then
+          echo "❌ Error: Debian package was not created"
+          exit 1
+        fi
+        
         chmod 755 ../termux-shizuku-tools.deb
+        
+        echo "✅ Debian package built successfully"
+        echo "Package size:"
+        ls -lh ../termux-shizuku-tools.deb
 
     - name: Upload Debian package artifact
       uses: actions/upload-artifact@v4
