@@ -5,6 +5,7 @@ English | [Русский](/README-ru.md)  </br></br>
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/AlexeiCrystal/termux-shizuku-tools)](https://github.com/AlexeiCrystal/termux-shizuku-tools/pulls)
 [![GitHub](https://img.shields.io/github/license/AlexeiCrystal/termux-shizuku-tools)](https://github.com/AlexeiCrystal/termux-shizuku-tools/blob/main/LICENCE.md)
 [![GitHub Repo stars](https://img.shields.io/github/stars/AlexeiCrystal/termux-shizuku-tools?style=social)](https://github.com/AlexeiCrystal/termux-shizuku-tools/stargazers)
+[![Build package](https://github.com/AlexeiCrystal/termux-shizuku-tools/actions/workflows/build-den-in-push.yml/badge.svg)](https://github.com/AlexeiCrystal/termux-shizuku-tools/actions/workflows/build-den-in-push.yml)
 
 # Description
 Helps [Termux](https://github.com/termux/termux-app) get access to [Shizuku](https://github.com/RikkaApps/Shizuku)
