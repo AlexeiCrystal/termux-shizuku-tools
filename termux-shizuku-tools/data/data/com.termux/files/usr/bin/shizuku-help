@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
 
 echo "shizuku – Run interactive shizuku shell mode"
 echo "shizuku <command> – Execute command via Shizuku"

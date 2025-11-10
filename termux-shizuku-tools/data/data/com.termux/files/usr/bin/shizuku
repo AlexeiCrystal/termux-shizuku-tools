@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
 
 if [ ! -f "$PREFIX/shizuku/shizuku_functions.sh" ]; then
     echo 'shizuku_functions.sh file not found. Please reinstall package!'
@@ -25,8 +25,7 @@ if [ $(is_shizuku_installed) = "false" ]; then
 fi
 
 if [ $# -gt 0 ]; then
-    command="$@"
-    execute_shizuku_command "$command"
+    execute_shizuku_command "$@"
 else
     echo "Trying to run Shizuku mode..."
     sh $THIS_PKG_PATH/rish

@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
 
 termux_shizuku_tools_version() {
     dpkg -s termux-shizuku-tools | grep '^Version:' | awk '{print $2}'
@@ -49,7 +49,7 @@ stop_shizuku_server() {
 export stop_shizuku_server
 
 is_shizuku_server_running() {
-    CMD_OUTPUT=$(execute_shizuku_command "echo shizuku_server_check") > /dev/null 2>&1
+    local CMD_OUTPUT=$(execute_shizuku_command "echo shizuku_server_check") > /dev/null 2>&1
     
     if [ "$CMD_OUTPUT" = "shizuku_server_check" ]; then
         echo "true"

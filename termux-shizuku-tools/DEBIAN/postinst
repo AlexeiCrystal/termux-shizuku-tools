@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
 
 chmod 755 $PREFIX/bin/shizuku
 chmod 755 $PREFIX/bin/shizuku-help

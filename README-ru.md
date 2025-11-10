@@ -41,7 +41,7 @@ dpkg -i termux-shizuku-tools_3.1.deb
 2. Выполните скрипт `build.sh` в корне репозитотория
 </br>Например:  
 ```
-sh /sdcard/Download/termux-shizuku-tools-main/build.sh
+bash /sdcard/Download/termux-shizuku-tools-main/build.sh
 ```
 3. Установите пакет  </br>
 Например:  

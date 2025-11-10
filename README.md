@@ -41,7 +41,7 @@ Instead of `shizuku` in command names, you can use the abbreviated word `shk`
 2. Execute `build.sh` script at root of the repository  
 For example:  
 ```
-sh /sdcard/Download/termux-shizuku-tools-main/build.sh
+bash /sdcard/Download/termux-shizuku-tools-main/build.sh
 ```
 3. Install package  
 For example:  

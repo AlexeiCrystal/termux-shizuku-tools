@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
 
 if [ ! -f "$PREFIX/shizuku/shizuku_functions.sh" ]; then
     echo 'shizuku_functions.sh file not found. Please reinstall package!'
