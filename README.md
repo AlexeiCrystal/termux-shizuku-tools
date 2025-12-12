@@ -33,7 +33,7 @@ Usage: shizuku, shk <command>
 
 Commands:
   info, i              - Show Shizuku status
-  open, o              - Open Shizuku Manager
+  open, o              - Open Shizuku
   stop, s              - Stop Shizuku server
   execute, exec, e     - Execute command via Shizuku
   shell, sh            - Start interactive Shizuku shell
