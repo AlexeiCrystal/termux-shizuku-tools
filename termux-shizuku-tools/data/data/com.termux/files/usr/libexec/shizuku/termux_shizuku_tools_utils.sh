@@ -17,7 +17,7 @@ show_help() {
     echo ""
     echo "Commands:"
     echo "  info, i              - Show Shizuku status"
-    echo "  open, o              - Open Shizuku Manager"
+    echo "  open, o              - Open Shizuku"
     echo "  stop, s              - Stop Shizuku server"
     echo "  execute, exec, e     - Execute command via Shizuku"
     echo "  shell, sh            - Start interactive Shizuku shell"
