@@ -24,17 +24,27 @@ cd /sdcard/Download
 3. Установите пакет</br>
 Например:</br>
 ```
-dpkg -i termux-shizuku-tools_3.1.deb
+dpkg -i termux-shizuku-tools_4.0.deb
 ```
 
 # Команды
-`shizuku` – Запустить режим интерактивной оболочки Shizuku</br>
-`shizuku <команда>` – Выполнить команду через Shizuku</br>
-`shizuku-info` – Проверить информацию о пакете (termux-shizuku-tools) и Shizuku</br>
-`shizuku-open` – Открыть приложение Shizuku</br>
-`shizuku-stop` – Остановить сервер Shizuku
-`shizuku-help` – Список команд</br>
-Вместо `shizuku` в названиях команд можно использовать сокращение `shk`
+```
+Usage: shizuku, shk <command>
+
+Commands:
+  info, i              - Show Shizuku status
+  open, o              - Open Shizuku Manager
+  stop, s              - Stop Shizuku server
+  execute, exec, e     - Execute command via Shizuku
+  shell, sh            - Start interactive Shizuku shell
+  help, h              - Show this help
+  version, v           - Show version
+
+Examples:
+  shizuku info
+  shizuku exec "pm list packages"
+  shizuku shell
+```
 
 # Как собрать
 1. Скачайте [репозиторий как zip](https://github.com/AlexeiCrystal/termux-shizuku-tools/archive/refs/heads/main.zip)  

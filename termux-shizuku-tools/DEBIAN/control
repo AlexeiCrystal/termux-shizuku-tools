@@ -1,9 +1,9 @@
 Package: termux-shizuku-tools
-Version: 3.1
-X-Version-Code: 4
+Version: 4.0
+X-Version-Code: 5
 Architecture: all
 Maintainer: AlexeiCrystal
-Description: Helps Termux get access to Shizuku
+Description: Shizuku management utilities for Termux
 Depends: bash, coreutils
 Section: utils
 Priority: optional

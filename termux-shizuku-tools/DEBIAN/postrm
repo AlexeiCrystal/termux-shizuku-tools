@@ -1,9 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 rm -f $PREFIX/bin/shk
-rm -f $PREFIX/bin/shk-help
-rm -f $PREFIX/bin/shk-info
-rm -f $PREFIX/bin/shk-open
-rm -f $PREFIX/bin/shk-stop
 
 echo "Package termux-shizuku-tools uninstalled!"

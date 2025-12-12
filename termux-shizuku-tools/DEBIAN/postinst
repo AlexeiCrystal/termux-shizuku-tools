@@ -1,33 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-chmod 755 $PREFIX/bin/shizuku
-chmod 755 $PREFIX/bin/shizuku-help
-chmod 755 $PREFIX/bin/shizuku-info
-chmod 755 $PREFIX/bin/shizuku-open
-chmod 755 $PREFIX/bin/shizuku-stop
-chmod 755 $PREFIX/shizuku/rish
-chmod 755 $PREFIX/shizuku/shizuku_functions.sh
+source $PREFIX/libexec/shizuku/shizuku_lib.sh
 
-if [ -f "$PREFIX/bin/shk-setup" ]; then
-    rm -rf "$PREFIX/bin/shk-setup"
-fi
-if [ -f "$PREFIX/bin/shk-desetup" ]; then
-    rm -rf "$PREFIX/bin/shk-desetup"
-fi
-if [ -f "$PREFIX/bin/shizuku-setup" ]; then
-    rm -rf "$PREFIX/bin/shizuku-setup"
-fi
-if [ -f "$PREFIX/bin/shizuku-desetup" ]; then
-    rm -rf "$PREFIX/bin/shizuku-desetup"
-fi
+chmod 755 $PREFIX/bin/shizuku
+chmod 444 $RISH_DEX_PATH
+
+source $SHIZUKU_LIB_DIR/termux_shizuku_tools_utils.sh
 
 ln -sf $PREFIX/bin/shizuku $PREFIX/bin/shk
-ln -sf $PREFIX/bin/shizuku-help $PREFIX/bin/shk-help
-ln -sf $PREFIX/bin/shizuku-info $PREFIX/bin/shk-info
-ln -sf $PREFIX/bin/shizuku-open $PREFIX/bin/shk-open
-ln -sf $PREFIX/bin/shizuku-stop $PREFIX/bin/shk-stop
-
-. $PREFIX/shizuku/shizuku_functions.sh
 
 case "$1" in
     configure)
@@ -37,13 +17,13 @@ case "$1" in
             CURRENT_VERSION=$(termux_shizuku_tools_version)
             echo " "
             echo "Package termux-shizuku-tools updated! ($PREVIOUS_VERSION > $CURRENT_VERSION)"
-            echo 'For a list of commands, run "shizuku-help"'
+            echo "Use 'shizuku help' for available commands"
         else
             IS_UPGRADE=false
             PREVIOUS_VERSION=""
             echo " "
             echo "Package termux-shizuku-tools $(termux_shizuku_tools_version) ($(termux_shizuku_tools_version_code)) by AlexeiCrystal installed!"
-            echo 'For a list of commands, run "shizuku-help"'
+            echo "Use 'shizuku help' for available commands"
         fi
         ;;
     *)

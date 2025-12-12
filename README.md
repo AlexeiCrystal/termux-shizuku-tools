@@ -24,17 +24,27 @@ cd /sdcard/Download
 3. Install package  
 For example:  
 ```
-dpkg -i termux-shizuku-tools_3.1.deb
+dpkg -i termux-shizuku-tools_4.0.deb
 ```
 
 # Commands
-`shizuku` – Run interactive shizuku shell mode  
-`shizuku <command>` – Execute command via Shizuku  
-`shizuku-info` – Check package (termux-shizuku-tools) info and Shizuku info  
-`shizuku-open` – Open Shizuku app  
-`shizuku-stop` – Stop Shizuku server  
-`shizuku-help` – Command list  
-Instead of `shizuku` in command names, you can use the abbreviated word `shk`
+```
+Usage: shizuku, shk <command>
+
+Commands:
+  info, i              - Show Shizuku status
+  open, o              - Open Shizuku Manager
+  stop, s              - Stop Shizuku server
+  execute, exec, e     - Execute command via Shizuku
+  shell, sh            - Start interactive Shizuku shell
+  help, h              - Show this help
+  version, v           - Show version
+
+Examples:
+  shizuku info
+  shizuku exec "pm list packages"
+  shizuku shell
+```
 
 # How to build
 1. Download [repository as zip](https://github.com/AlexeiCrystal/termux-shizuku-tools/archive/refs/heads/main.zip)  
