@@ -16,7 +16,7 @@ case "$1" in
             PREVIOUS_VERSION="$2"
             CURRENT_VERSION=$(termux_shizuku_tools_version)
             echo " "
-            echo "Package termux-shizuku-tools updated! ($PREVIOUS_VERSION > $CURRENT_VERSION)"
+            echo "Package termux-shizuku-tools updated! ($PREVIOUS_VERSION -> $CURRENT_VERSION)"
             echo "Use 'shizuku help' for available commands"
         else
             IS_UPGRADE=false
