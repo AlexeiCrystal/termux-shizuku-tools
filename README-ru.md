@@ -29,18 +29,18 @@ dpkg -i termux-shizuku-tools_4.0.deb
 
 # Команды
 ```
-Usage: shizuku, shk <command>
+Использование: shizuku, shk <команда>
 
-Commands:
-  info, i              - Show Shizuku status
-  open, o              - Open Shizuku Manager
-  stop, s              - Stop Shizuku server
-  execute, exec, e     - Execute command via Shizuku
-  shell, sh            - Start interactive Shizuku shell
-  help, h              - Show this help
-  version, v           - Show version
+Команды:
+  info, i              - Показать статус Shizuku
+  open, o              - Открыть Shizuku
+  stop, s              - Остановить сервер Shizuku
+  execute, exec, e     - Выполнить команду через Shizuku
+  shell, sh            - Запустить интерактивную оболочку Shizuku
+  help, h              - Показать эту справку
+  version, v           - Показать версию
 
-Examples:
+Примеры:
   shizuku info
   shizuku exec "pm list packages"
   shizuku shell
