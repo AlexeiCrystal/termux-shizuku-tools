@@ -1,45 +1,54 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-export SHIZUKU_LIB_DIR="$PREFIX/libexec/shizuku"
-export RISH_DEX_NAME="rish_shizuku.dex"
-export RISH_DEX_PATH="$SHIZUKU_LIB_DIR/$RISH_DEX_NAME"
+SHK_LIB_DIR="$PREFIX/libexec/shizuku"
+RISH_DEX_NAME="rish_shizuku.dex"
+RISH_DEX_PATH="$SHK_LIB_DIR/$RISH_DEX_NAME"
 
-is_shizuku_installed() {
-    if cmd package list packages | grep -q "package:moe.shizuku.privileged.api"; then
+SHK_PKG="moe.shizuku.privileged.api"
+SHK_SERVER_PROC_NAME="shizuku_server"
+TERMUX_PKG="com.termux"
+SHK_MAIN_ACTIVITY_CLASS="$SHK_PKG/moe.shizuku.manager.MainActivity"
+
+SHK_CHECK_STR="shizuku_server_check"
+
+export SHK_LIB_DIR RISH_DEX_NAME RISH_DEX_PATH SHK_PKG SHK_SERVER_PROC_NAME
+
+is_shk_installed() {
+    if cmd package list packages | grep -q "package:$SHK_PKG"; then
         echo "true"
     else
         echo "false"
     fi
 }
 
-shizuku_version_code() {
-    if [ "$(is_shizuku_installed)" = "true" ]; then
-        cmd package list packages --show-versioncode | grep "package:moe.shizuku.privileged.api versionCode:" | awk -F':' '{print $NF}'
+get_shk_version_code() {
+    if [ "$(is_shk_installed)" = "true" ]; then
+        cmd package list packages --show-versioncode | grep "package:$SHK_PKG versionCode:" | awk -F':' '{print $NF}'
     else
         echo "-1"
     fi
 }
 
-execute_shizuku_command() {
+execute_shk_command() {
     rish "$*"
 }
 
-open_shizuku_interactive_shell() {
+open_shk_interactive_shell() {
     rish
 }
 
-open_shizuku() {
-    am start -n moe.shizuku.privileged.api/moe.shizuku.manager.MainActivity > /dev/null 2>&1
+open_shk() {
+    am start -n $SHK_MAIN_ACTIVITY_CLASS > /dev/null 2>&1
 }
 
-stop_shizuku_server() {
-    execute_shizuku_command "kill \$(pidof shizuku_server)"
+stop_shk_server() {
+    execute_shk_command "kill \$(pidof $SHK_SERVER_PROC_NAME)"
 }
 
-is_shizuku_server_running() {
-    local CMD_OUTPUT=$(execute_shizuku_command "echo shizuku_server_check") 2>/dev/null
+is_shk_server_running() {
+    local CMD_OUTPUT=$(execute_shk_command "echo $SHK_CHECK_STR" 2>&1)
     
-    if [ "$CMD_OUTPUT" = "shizuku_server_check" ]; then
+    if [ "$CMD_OUTPUT" = "$SHK_CHECK_STR" ]; then
         echo "true"
     else
         echo "false"
@@ -68,7 +77,7 @@ rish() {
         fi
     fi
     
-    [ -z "$RISH_APPLICATION_ID" ] && export RISH_APPLICATION_ID="com.termux"
+    [ -z "$RISH_APPLICATION_ID" ] && export RISH_APPLICATION_ID="$TERMUX_PKG"
     
 
     if [ $# -eq 0 ]; then

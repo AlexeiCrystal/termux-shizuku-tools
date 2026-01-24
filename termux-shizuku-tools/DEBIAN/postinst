@@ -1,33 +1,43 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-source $PREFIX/libexec/shizuku/shizuku_lib.sh
+readonly TST_LIB_DIR="/data/data/com.termux/files/usr/libexec/shizuku"
+readonly TST_BIN="/data/data/com.termux/files/usr/bin/shizuku"
+readonly TST_RISH_DEX="$TST_LIB_DIR/rish_shizuku.dex"
 
-chmod 755 $PREFIX/bin/shizuku
-chmod 444 $RISH_DEX_PATH
+# Проверяем наличие либы перед source
+if [ -f "$TST_LIB_DIR/shizuku_lib.sh" ]; then
+    source "$TST_LIB_DIR/shizuku_lib.sh"
+fi
 
-source $SHIZUKU_LIB_DIR/termux_shizuku_tools_utils.sh
+# Проверяем наличие утилит перед source
+if [ -f "$TST_LIB_DIR/tst_utils.sh" ]; then
+    source "$TST_LIB_DIR/tst_utils.sh"
+else
+    echo "Error: tst_utils.sh not found in $TST_LIB_DIR"
+    exit 1
+fi
 
-ln -sf $PREFIX/bin/shizuku $PREFIX/bin/shk
+# Права доступа
+chmod 755 "$TST_BIN"
+[ -f "$TST_RISH_DEX" ] && chmod 444 "$TST_RISH_DEX"
+
+# Симлинк
+ln -sf "$TST_BIN" "/data/data/com.termux/files/usr/bin/shk"
 
 case "$1" in
     configure)
+        # Получаем версию через функцию из tst_utils.sh
+        CURRENT_VERSION=$(tst_version)
+        VERSION_CODE=$(tst_version_code)
+        
+        if [ -z "$CURRENT_VERSION" ]; then CURRENT_VERSION="unknown"; fi
+
         if [ -n "$2" ]; then
-            IS_UPGRADE=true
-            PREVIOUS_VERSION="$2"
-            CURRENT_VERSION=$(termux_shizuku_tools_version)
-            echo " "
-            echo "Package termux-shizuku-tools updated! ($PREVIOUS_VERSION -> $CURRENT_VERSION)"
+            echo -e "\nPackage termux-shizuku-tools updated! ($2 -> $CURRENT_VERSION)"
             echo "Use 'shizuku help' for available commands"
         else
-            IS_UPGRADE=false
-            PREVIOUS_VERSION=""
-            echo " "
-            echo "Package termux-shizuku-tools $(termux_shizuku_tools_version) ($(termux_shizuku_tools_version_code)) by AlexeiCrystal installed!"
+            echo -e "\nPackage termux-shizuku-tools $CURRENT_VERSION ($VERSION_CODE) by AlexeiCrystal installed!"
             echo "Use 'shizuku help' for available commands"
         fi
-        ;;
-    *)
-        IS_UPGRADE=false
-        PREVIOUS_VERSION=""
         ;;
 esac

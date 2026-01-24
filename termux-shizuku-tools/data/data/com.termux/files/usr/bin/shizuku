@@ -1,83 +1,72 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+REINSTALL_MSG="Please reinstall termux-shizuku-tools package"
+
 if [[ ! -f "$PREFIX/libexec/shizuku/shizuku_lib.sh" ]]; then
     echo "Error: File $PREFIX/libexec/shizuku/shizuku_lib.sh not found"
-    echo "Please reinstall termux-shizuku-tools package"
+    echo "$REINSTALL_MSG"
     exit 1
 fi
 
 source $PREFIX/libexec/shizuku/shizuku_lib.sh
 
-if [[ ! -f "$SHIZUKU_LIB_DIR/termux_shizuku_tools_utils.sh" ]]; then
-    echo "Error: File $SHIZUKU_LIB_DIR/termux_shizuku_tools_utils.sh not found"
-    echo "Please reinstall termux-shizuku-tools package"
+if [[ ! -f "$PREFIX/libexec/shizuku/tst_utils.sh" ]]; then
+    echo "Error: File $PREFIX/libexec/shizuku/tst_utils.sh not found"
+    echo "$REINSTALL_MSG"
     exit 1
 fi
 
-source $SHIZUKU_LIB_DIR/termux_shizuku_tools_utils.sh
+source $PREFIX/libexec/shizuku/tst_utils.sh
 
 if [[ ! -f "$RISH_DEX_PATH" ]]; then
     echo "Error: File $RISH_DEX_PATH not found"
-    echo "Please reinstall termux-shizuku-tools package"
+    echo "$REINSTALL_MSG"
     exit 1
 fi
 
-if [[ -z "$1" ]]; then
-   show_help
-    
-elif [[ "$1" == "info" || "$1" == "i" ]]; then
-    echo "Is Shizuku installed: $(is_shizuku_installed)"
-    echo "Shizuku version code: $(shizuku_version_code)"
-    echo "Is Shizuku server running: $(is_shizuku_server_running)"
-    exit 0
-    
-elif [[ "$1" == "open" || "$1" == "o" ]]; then
-    if [[ "$(is_shizuku_installed)" ==  "false" ]]; then
-        echo "Error: Shizuku is not installed"
-        exit 1
+case "$1" in
+    "" | "--help" | "help" | "h" | "-h")
+        show_help
+        exit 0
+        ;;
+    "info" | "i" | "status")
+        show_status
+        exit 0
+        ;;
+    "version" | "v")
+        show_version
+        exit 0
+        ;;
+    "open" | "o" | "stop" | "s" | "shell" | "sh" | "e" | "execute" | "exec")
+        if [[ "$(is_shk_installed)" == "false" ]]; then
+            echo "$SHK_NOT_INST_ERR_MSG"
+            exit 1
         fi
-    echo "Launching Shizuku app..."
-    open_shizuku
-    exit 0
-    
-elif [[ "$1" == "stop" || "$1" == "s" ]]; then
-    if [[ "$(is_shizuku_installed)" ==  "false" ]]; then
-        echo "Error: Shizuku is not installed"
+        
+        case "$1" in
+            "open" | "o")
+                echo "$SHK_LAUNCH_MSG"
+                open_shk
+                ;;
+            "stop" | "s")
+                echo "Stopping Shizuku server..."
+                stop_shk_server
+                ;;
+            "shell" | "sh")
+                echo "$SHK_I_SH_MSG"
+                echo "$SHK_I_SH_EXIT_TIP"
+                open_shk_interactive_shell
+                ;;
+            "e" | "exec" | "execute")
+                shift
+                execute_shk_command "$@"
+                ;;
+        esac
+        exit 0
+        ;;
+    *)
+        echo "$SHK_UNK_CMD_ERR_MSG $1"
+        echo "Use 'shizuku help' for available commands"
         exit 1
-        fi
-    echo "Stopping Shizuku server..."
-    stop_shizuku_server
-    exit 0
-    
-elif [[ "$1" == "help" || "$1" == "h" || "$1" == "--help" || "$1" == "-h" ]]; then
-    show_help
-    exit 0
-    
-elif [[ "$1" == "shell" || "$1" == "sh" ]]; then
-    if [[ "$(is_shizuku_installed)" ==  "false" ]]; then
-        echo "Error: Shizuku is not installed"
-        exit 1
-        fi
-    echo "Starting Shizuku interactive shell..."
-    echo "Type 'exit' to exit from interactive Shizuku shell"
-    open_shizuku_interactive_shell
-    exit 0
-    
-elif [[ "$1" == "execute" || "$1" == "exec" || "$1" == "e" ]]; then
-    if [[ "$(is_shizuku_installed)" ==  "false" ]]; then
-        echo "Error: Shizuku is not installed"
-        exit 1
-        fi
-    shift
-    execute_shizuku_command "$@"
-    exit 0
-    
-elif [[ "$1" == "version" || "$1" == "v" ]]; then
-    show_version
-    exit 0
-    
-else
-    echo "Unknown command: $1"
-    echo "Use 'shizuku help' for available commands"
-    exit 1
-fi
+        ;;
+esac
