@@ -15,7 +15,14 @@
 </br>• Установленное приложение [Termux](https://github.com/termux/termux-app)
 
 # Как установить
-1. Скачайте deb-файл из [последнего релиза](https://github.com/AlexeiCrystal/termux-shizuku-tools/releases/latest)
+## Через GitHub
+1. Скачайте deb-файл из последнего релиза:
+<p align="left">
+  <a href="https://github.com/AlexeiCrystal/termux-shizuku-tools/releases/latest">
+    <img src="assets/get-it-on-github.png" alt="Get it on GitHub" height="80">
+  </a>
+</p>
+
 2. Перейдите в каталог, куда был скачан файл
 </br> Например:</br>
 ```
