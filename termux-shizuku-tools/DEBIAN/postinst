@@ -4,12 +4,12 @@ readonly TST_LIB_DIR="/data/data/com.termux/files/usr/libexec/shizuku"
 readonly TST_BIN="/data/data/com.termux/files/usr/bin/shizuku"
 readonly TST_RISH_DEX="$TST_LIB_DIR/rish_shizuku.dex"
 
-# Проверяем наличие либы перед source
+
 if [ -f "$TST_LIB_DIR/shizuku_lib.sh" ]; then
     source "$TST_LIB_DIR/shizuku_lib.sh"
 fi
 
-# Проверяем наличие утилит перед source
+
 if [ -f "$TST_LIB_DIR/tst_utils.sh" ]; then
     source "$TST_LIB_DIR/tst_utils.sh"
 else
@@ -17,7 +17,7 @@ else
     exit 1
 fi
 
-# Права доступа
+
 chmod 755 "$TST_BIN"
 [ -f "$TST_RISH_DEX" ] && chmod 444 "$TST_RISH_DEX"
 
@@ -26,7 +26,7 @@ ln -sf "$TST_BIN" "/data/data/com.termux/files/usr/bin/shk"
 
 case "$1" in
     configure)
-        # Получаем версию через функцию из tst_utils.sh
+       
         CURRENT_VERSION=$(tst_version)
         VERSION_CODE=$(tst_version_code)
         
