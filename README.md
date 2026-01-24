@@ -15,7 +15,14 @@ Helps [Termux](https://github.com/termux/termux-app) get access to [Shizuku](htt
 • Installed [Termux](https://github.com/termux/termux-app)
 
 # How to install
-1. Download deb file from [latest release](https://github.com/AlexeiCrystal/termux-shizuku-tools/releases/latest)
+## Via GitHub
+1. Download deb file from latest release:
+<p align="left">
+  <a href="https://github.com/AlexeiCrystal/termux-shizuku-tools/releases/latest">
+    <img src="assets/get-it-on-github.png" alt="Get it on GitHub" height="80">
+  </a>
+</p>
+
 2. Go to the directory where the file was downloaded to  
 For example:  
 ```
