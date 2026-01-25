@@ -1,6 +1,6 @@
 Package: termux-shizuku-tools
-Version: 4.0
-X-Version-Code: 5
+Version: 4.1
+X-Version-Code: 6
 Architecture: all
 Maintainer: AlexeiCrystal
 Description: Shizuku management utilities for Termux
