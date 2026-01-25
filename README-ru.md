@@ -31,7 +31,7 @@ cd /sdcard/Download
 3. Установите пакет</br>
 Например:</br>
 ```
-dpkg -i termux-shizuku-tools.deb
+dpkg -i termux-shizuku-tools_4.1.deb
 ```
 
 # Команды
