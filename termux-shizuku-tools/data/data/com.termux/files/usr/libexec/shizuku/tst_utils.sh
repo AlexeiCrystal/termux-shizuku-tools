@@ -83,12 +83,12 @@ show_status() {
         
         local v_code=$(get_shk_version_code)
         echo -e "${NC} Version:   ${Y}${v_code}${NC}"
-
+        echo -e " Server:    Loading info..."
         local running=$(is_shk_server_running)
         if [ "$running" = "true" ]; then
-            echo -e "${NC} Server:    ${TICK} Running"
+            echo -e "\033[1A\033[K${NC} Server:    ${TICK} Running"
         else
-            echo -e "${NC} Server:    ${CROSS} Stopped"
+            echo -e "\033[1A\033[K${NC} Server:    ${CROSS} Stopped"
         fi
     else
         echo -e "${NC} Installed: ${CROSS} No"
