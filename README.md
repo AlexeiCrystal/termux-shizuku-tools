@@ -34,6 +34,17 @@ For example:
 dpkg -i termux-shizuku-tools_4.1.deb
 ```
 
+## Via Termux Hub
+1. Open termux-shizuku-tools page in Termux Hub
+
+<p align="left">
+  <a href="https://maazm7d.github.io/termuxhub/tool/0101">
+    <img src="assets/open-in-termuxhub.png" alt="Open in Termux Hub" height="80">
+  </a>
+</p>
+
+2. Scroll down and copy commands to install
+
 # Commands
 ```
 Usage: shizuku, shk <command>
