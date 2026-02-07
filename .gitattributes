@@ -1,4 +1,4 @@
 termux-shizuku-tools/DEBIAN/postinst linguist-language=Shell
 termux-shizuku-tools/DEBIAN/postrm linguist-language=Shell
+termux-shizuku-tools/DEBIAN/prerm linguist-language=Shell
 termux-shizuku-tools/data/data/com.termux/files/usr/bin/* linguist-language=Shell
-termux-shizuku-tools/data/data/com.termux/files/usr/shizuku/rish linguist-language=Shell
