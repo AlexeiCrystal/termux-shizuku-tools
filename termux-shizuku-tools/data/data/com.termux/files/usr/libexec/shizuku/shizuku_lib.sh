@@ -14,7 +14,7 @@ SHK_CHECK_STR="shizuku_server_check"
 export SHK_LIB_DIR RISH_DEX_NAME RISH_DEX_PATH SHK_PKG SHK_SERVER_PROC_NAME
 
 is_shk_installed() {
-    if cmd package list packages | grep -q "package:$SHK_PKG"; then
+    if cmd package list packages --user $(( $(id -u) / 100000 )) | grep -q "package:$SHK_PKG"; then
         echo "true"
     else
         echo "false"
