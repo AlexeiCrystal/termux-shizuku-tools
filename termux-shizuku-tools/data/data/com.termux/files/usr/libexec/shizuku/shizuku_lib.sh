@@ -23,7 +23,7 @@ is_shk_installed() {
 
 get_shk_version_code() {
     if [ "$(is_shk_installed)" = "true" ]; then
-        cmd package list packages --show-versioncode | grep "package:$SHK_PKG versionCode:" | awk -F':' '{print $NF}'
+        cmd package list packages --show-versioncode --user $(( $(id -u) / 100000 )) | grep "package:$SHK_PKG versionCode:" | awk -F':' '{print $NF}'
     else
         echo "-1"
     fi
