@@ -8,11 +8,11 @@
 [![Звёзды](https://img.shields.io/github/stars/AlexeiCrystal/termux-shizuku-tools?style=social&label=%D0%97%D0%B2%D1%91%D0%B7%D0%B4%D1%8B)](https://github.com/AlexeiCrystal/termux-shizuku-tools/stargazers)
 
 # Описание
-Позволяет [Termux](https://github.com/termux/termux-app) получить доступ к [Shizuku](https://github.com/RikkaApps/Shizuku)
+Утилиты для управления [Shizuku](https://github.com/RikkaApps/Shizuku) в [Termux](https://github.com/termux/termux-app)
 
 # Требования
-• Установленное и запущенное приложение [Shizuku](https://github.com/RikkaApps/Shizuku)
-</br>• Установленное приложение [Termux](https://github.com/termux/termux-app)
+- Установленное и запущенное приложение [Shizuku](https://github.com/RikkaApps/Shizuku)
+- Установленное приложение [Termux](https://github.com/termux/termux-app)
 
 # Как установить
 ## Через GitHub
@@ -23,19 +23,19 @@
   </a>
 </p>
 
-2. Перейдите в каталог, куда был скачан файл
-</br> Например:</br>
+2. Перейдите в каталог, куда был скачан файл  
+Например:  
 ```
 cd /sdcard/Download
 ```
-3. Установите пакет</br>
-Например:</br>
+3. Установите пакет  
+Например:  
 ```
 dpkg -i termux-shizuku-tools_4.1.deb
 ```
 
 ## Через Termux Hub
-1. Откройте страницу termux-shizuku-tools в Termux Hub
+1. Откройте страницу termux-shizuku-tools в Termux Hub  
 
 <p align="left">
   <a href="https://maazm7d.github.io/termuxhub/tool/0101">
@@ -67,15 +67,28 @@ dpkg -i termux-shizuku-tools_4.1.deb
 
 # Как собрать
 1. Скачайте [репозиторий как zip](https://github.com/AlexeiCrystal/termux-shizuku-tools/archive/refs/heads/main.zip)  
-2. Выполните скрипт `build.sh` в корне репозитотория
-</br>Например:  
+Или клонируйте с помощью git:  
+```
+git clone https://github.com/AlexeiCrystal/termux-shizuku-tools.git
+```
+2. Выполните скрипт `build.sh` в корне репозитотория  
+Например:  
 ```
 bash /sdcard/Download/termux-shizuku-tools-main/build.sh
 ```
-3. Установите пакет  </br>
+Или:  
+```
+bash /sdcard/Download/termux-shizuku-tools/build.sh
+```
+
+3. Установите пакет  
 Например:  
 ```
 dpkg -i /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools.deb
+```
+Или:  
+```
+dpkg -i /sdcard/Download/termux-shizuku-tools/termux-shizuku-tools.deb
 ```
 
 # История звёзд

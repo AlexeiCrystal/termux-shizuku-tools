@@ -8,11 +8,11 @@ English | [Русский](/README-ru.md)  </br></br>
 [![Build package](https://github.com/AlexeiCrystal/termux-shizuku-tools/actions/workflows/build-den-in-push.yml/badge.svg)](https://github.com/AlexeiCrystal/termux-shizuku-tools/actions/workflows/build-den-in-push.yml)
 
 # Description
-Helps [Termux](https://github.com/termux/termux-app) get access to [Shizuku](https://github.com/RikkaApps/Shizuku)
+[Shizuku](https://github.com/RikkaApps/Shizuku) management utilities for [Termux](https://github.com/termux/termux-app)
 
 # Requirements
-• [Shizuku](https://github.com/RikkaApps/Shizuku) installed and running  
-• Installed [Termux](https://github.com/termux/termux-app)
+- [Shizuku](https://github.com/RikkaApps/Shizuku) installed and running  
+- Installed [Termux](https://github.com/termux/termux-app)
 
 # How to install
 ## Via GitHub
@@ -66,15 +66,28 @@ Examples:
 
 # How to build
 1. Download [repository as zip](https://github.com/AlexeiCrystal/termux-shizuku-tools/archive/refs/heads/main.zip)  
+Or clone via git:  
+```
+git clone https://github.com/AlexeiCrystal/termux-shizuku-tools.git
+```
 2. Execute `build.sh` script at root of the repository  
 For example:  
 ```
 bash /sdcard/Download/termux-shizuku-tools-main/build.sh
 ```
+Or:  
+```
+bash /sdcard/Download/termux-shizuku-tools/build.sh
+```
+
 3. Install package  
 For example:  
 ```
 dpkg -i /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools.deb
+```
+Or:  
+```
+dpkg -i /sdcard/Download/termux-shizuku-tools/termux-shizuku-tools.deb
 ```
 
 # Star History

@@ -21,7 +21,6 @@ fi
 chmod 755 "$TST_BIN"
 [ -f "$TST_RISH_DEX" ] && chmod 444 "$TST_RISH_DEX"
 
-# Симлинк
 ln -sf "$TST_BIN" "/data/data/com.termux/files/usr/bin/shk"
 
 case "$1" in

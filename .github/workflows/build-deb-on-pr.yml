@@ -1,4 +1,4 @@
-name: Build termux-shizuku-tools Debian package
+name: Build package on PR
 
 on:
   pull_request:
