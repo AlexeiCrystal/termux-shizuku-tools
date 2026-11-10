@@ -1,1 +1,3 @@
 termux-shizuku-tools.deb
+.build/
+termux-shizuku-tools/data/data/com.termux/files/usr/libexec/shizuku/rish_shizuku.dex

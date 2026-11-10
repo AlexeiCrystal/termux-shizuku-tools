@@ -4,7 +4,9 @@ SHK_LIB_DIR="$PREFIX/libexec/shizuku"
 RISH_DEX_NAME="rish_shizuku.dex"
 RISH_DEX_PATH="$SHK_LIB_DIR/$RISH_DEX_NAME"
 
-SHK_PKG="moe.shizuku.privileged.api"
+# Package name of the Shizuku app. Override it when Shizuku is installed under a
+# different package name, e.g. with Shizuku-Next's package rename (stealth) mode:
+: "${SHK_PKG:=moe.shizuku.privileged.api}"
 SHK_SERVER_PROC_NAME="shizuku_server"
 TERMUX_PKG="com.termux"
 SHK_MAIN_ACTIVITY_CLASS="$SHK_PKG/moe.shizuku.manager.MainActivity"
@@ -46,9 +48,12 @@ stop_shk_server() {
 }
 
 is_shk_server_running() {
-    local CMD_OUTPUT=$(execute_shk_command "echo $SHK_CHECK_STR" 2>&1)
-    
-    if [ "$CMD_OUTPUT" = "$SHK_CHECK_STR" ]; then
+    local CMD_OUTPUT
+    CMD_OUTPUT=$(execute_shk_command "echo $SHK_CHECK_STR" 2>&1)
+
+    # Match the marker as a whole line, so a banner printed before the command
+    # (Shizuku-Next prints "Entering shell...") does not matter.
+    if printf '%s\n' "$CMD_OUTPUT" | grep -qxF "$SHK_CHECK_STR"; then
         echo "true"
     else
         echo "false"
@@ -78,6 +83,11 @@ rish() {
     fi
     
     [ -z "$RISH_APPLICATION_ID" ] && export RISH_APPLICATION_ID="$TERMUX_PKG"
+
+    # The shell loader asks the Shizuku app for the binder by package name. Loaders
+    # built from Shizuku-Next read it from this variable instead of hardcoding it,
+    # which is what makes a renamed/hidden package work.
+    export MANAGER_APPLICATION_ID="$SHK_PKG"
     
 
     if [ $# -eq 0 ]; then
