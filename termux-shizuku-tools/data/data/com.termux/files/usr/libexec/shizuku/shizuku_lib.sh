@@ -48,9 +48,12 @@ stop_shk_server() {
 }
 
 is_shk_server_running() {
-    local CMD_OUTPUT=$(execute_shk_command "echo $SHK_CHECK_STR" 2>&1)
-    
-    if [ "$CMD_OUTPUT" = "$SHK_CHECK_STR" ]; then
+    local CMD_OUTPUT
+    CMD_OUTPUT=$(execute_shk_command "echo $SHK_CHECK_STR" 2>&1)
+
+    # Match the marker as a whole line, so a banner printed before the command
+    # (Shizuku-Next prints "Entering shell...") does not matter.
+    if printf '%s\n' "$CMD_OUTPUT" | grep -qxF "$SHK_CHECK_STR"; then
         echo "true"
     else
         echo "false"
