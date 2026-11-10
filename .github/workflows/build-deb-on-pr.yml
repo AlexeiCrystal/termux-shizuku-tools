@@ -9,6 +9,11 @@ jobs:
   build-deb:
     runs-on: ubuntu-latest
 
+    env:
+      # Always set, so build.sh does not print its "Hiding Shizuku?" hint.
+      # Point the repository variable at a hidden package name to bake that in.
+      MANAGER_APPLICATION_ID: ${{ vars.MANAGER_APPLICATION_ID || 'moe.shizuku.privileged.api' }}
+
     steps:
     - name: Checkout code from PR branch
       uses: actions/checkout@v3
@@ -46,29 +51,29 @@ jobs:
         
         echo "✅ All required directories and files are present"
 
-    - name: Build Debian package from termux-shizuku-tools
+    - name: Set file permissions
+      run: |
+        chmod --recursive a+rX termux-shizuku-tools
+        chmod a+x \
+          build.sh \
+          termux-shizuku-tools/DEBIAN/postinst \
+          termux-shizuku-tools/DEBIAN/prerm \
+          termux-shizuku-tools/DEBIAN/postrm \
+          termux-shizuku-tools/data/data/com.termux/files/usr/bin/shizuku
+
+    - name: Build Debian package
       run: |
         echo "Building Debian package..."
-        cd termux-shizuku-tools
-        
-        echo "Setting permissions..."
-        chmod -R 755 DEBIAN
-        
-        echo "Checking permissions after chmod:"
-        ls -la DEBIAN/
-        
-        dpkg-deb --build . ../termux-shizuku-tools.deb
-        
-        if [ ! -f "../termux-shizuku-tools.deb" ]; then
+        make package
+
+        if [ ! -f "termux-shizuku-tools.deb" ]; then
           echo "❌ Error: Debian package was not created"
           exit 1
         fi
-        
-        chmod 755 ../termux-shizuku-tools.deb
-        
+
         echo "✅ Debian package built successfully"
         echo "Package size:"
-        ls -lh ../termux-shizuku-tools.deb
+        ls -lh termux-shizuku-tools.deb
 
     - name: Upload Debian package artifact
       uses: actions/upload-artifact@v4

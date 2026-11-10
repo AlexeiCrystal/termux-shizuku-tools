@@ -4,7 +4,9 @@ SHK_LIB_DIR="$PREFIX/libexec/shizuku"
 RISH_DEX_NAME="rish_shizuku.dex"
 RISH_DEX_PATH="$SHK_LIB_DIR/$RISH_DEX_NAME"
 
-SHK_PKG="moe.shizuku.privileged.api"
+# Package name of the Shizuku app. Override it when Shizuku is installed under a
+# different package name, e.g. with Shizuku-Next's package rename (stealth) mode:
+: "${SHK_PKG:=moe.shizuku.privileged.api}"
 SHK_SERVER_PROC_NAME="shizuku_server"
 TERMUX_PKG="com.termux"
 SHK_MAIN_ACTIVITY_CLASS="$SHK_PKG/moe.shizuku.manager.MainActivity"
@@ -78,6 +80,11 @@ rish() {
     fi
     
     [ -z "$RISH_APPLICATION_ID" ] && export RISH_APPLICATION_ID="$TERMUX_PKG"
+
+    # The shell loader asks the Shizuku app for the binder by package name. Loaders
+    # built from Shizuku-Next read it from this variable instead of hardcoding it,
+    # which is what makes a renamed/hidden package work.
+    export MANAGER_APPLICATION_ID="$SHK_PKG"
     
 
     if [ $# -eq 0 ]; then
