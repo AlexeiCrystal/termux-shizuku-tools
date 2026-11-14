@@ -51,6 +51,26 @@ is_shizuku_server_running() {
     printf '%s\n' "$CMD_OUTPUT" | grep -qxF "$SHIZUKU_CHECK_STR"
 }
 
+get_shizuku_uid() {
+    execute_shizuku_command "id -u"
+}
+
+get_shizuku_uid_name() {
+    local uid
+    if [ $# -gt 0 ]; then
+        uid="$1"
+    else
+        uid="$(get_shizuku_uid)"
+    fi
+
+    case "$uid" in
+        0)    printf '%s' "root"    ;;
+        1000) printf '%s' "system"  ;;
+        2000) printf '%s' "shell"   ;;
+        *)    printf '%s' "unknown" ;;
+    esac
+}
+
 rish() {
     local DEX="$SHIZUKU_DEX_PATH"
     

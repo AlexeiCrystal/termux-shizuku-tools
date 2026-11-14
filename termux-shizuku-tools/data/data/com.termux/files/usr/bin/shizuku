@@ -39,7 +39,7 @@ case "$1" in
         show_version
         exit 0
         ;;
-    "config")
+    "config" | "cfg")
         shift
         shizuku_config "$@"
         exit 0

@@ -46,22 +46,24 @@ dpkg -i termux-shizuku-tools_5.0.deb
 Использование: shizuku, shk <команда>
 
 Команды:
-  info, i              - Показать статус Shizuku
+  status, st, i, info  - Показать статус Shizuku
   open, o              - Открыть Shizuku
   stop, s              - Остановить сервер Shizuku
   execute, exec, e     - Выполнить команду через Shizuku
   shell, sh            - Запустить интерактивную оболочку Shizuku
-  config get           - Получить конфиг
-  config get key       - Получить ключ конфига
-  config set key value - Установить ключ конфига
-  config reset         - Сбросить конфиг
-  config reset key     - Сбросить ключ конфига
+  config, cfg
+    get                - Получить конфиг
+    get key            - Получить ключ конфига
+    set key value      - Установить ключ конфига
+    reset              - Сбросить конфиг
+    reset key          - Сбросить ключ конфига
   help, h              - Показать эту справку
-  version, v           - Показать версию
+  version, v           - Показать версию утилиты
 
 Примеры:
   shizuku info
   shizuku exec "pm list packages"
+  shizuku config set package ваш.кастомный.пакет.shizuku
   shizuku shell
 ```
 

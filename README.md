@@ -44,22 +44,24 @@ dpkg -i termux-shizuku-tools_5.0.deb
 Usage: shizuku, shk <command>
 
 Commands:
-  info, i              - Show Shizuku status
-  open, o              - Open Shizuku
+  status, st, i, info  - Show Shizuku status & info
+  open, o              - Open Shizuku app
   stop, s              - Stop Shizuku server
   execute, exec, e     - Execute command via Shizuku
   shell, sh            - Start interactive Shizuku shell
-  config get           - Get config
-  config get key       - Get config key
-  config set key value - Set config key
-  config reset         - Reset config
-  config reset key     - Reset config key
+  config, cfg
+    get                - Get config
+    get key            - Get config key
+    set key value      - Set config key
+    reset              - Reset config
+    reset key          - Reset config key
   help, h              - Show this help
-  version, v           - Show version
+  version, v           - Show utility version
 
 Examples:
   shizuku info
   shizuku exec "pm list packages"
+  shizuku config set package your.custom.shizuku.package
   shizuku shell
 ```
 
