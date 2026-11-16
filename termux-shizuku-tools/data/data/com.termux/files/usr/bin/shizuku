@@ -18,11 +18,13 @@ fi
 
 source $PREFIX/libexec/shizuku/tst_utils.sh
 
-if [[ ! -f "$RISH_DEX_PATH" ]]; then
-    echo "Error: File $RISH_DEX_PATH not found"
+if [[ ! -f "$SHIZUKU_DEX_PATH" ]]; then
+    echo "Error: File $SHIZUKU_DEX_PATH not found"
     echo "$REINSTALL_MSG"
     exit 1
 fi
+
+source $PREFIX/libexec/shizuku/shizuku_config.sh
 
 case "$1" in
     "" | "--help" | "help" | "h" | "-h")
@@ -37,8 +39,13 @@ case "$1" in
         show_version
         exit 0
         ;;
+    "config" | "cfg")
+        shift
+        shizuku_config "$@"
+        exit 0
+        ;;
     "open" | "o" | "stop" | "s" | "shell" | "sh" | "e" | "execute" | "exec")
-        if [[ "$(is_shk_installed)" == "false" ]]; then
+        if ! is_shizuku_installed; then
             echo "$SHK_NOT_INST_ERR_MSG"
             exit 1
         fi
@@ -46,20 +53,20 @@ case "$1" in
         case "$1" in
             "open" | "o")
                 echo "$SHK_LAUNCH_MSG"
-                open_shk
+                open_shizuku
                 ;;
             "stop" | "s")
                 echo "Stopping Shizuku server..."
-                stop_shk_server
+                stop_shizuku_server
                 ;;
             "shell" | "sh")
-                echo "$SHK_I_SH_MSG"
-                echo "$SHK_I_SH_EXIT_TIP"
-                open_shk_interactive_shell
+                echo "$SHK_SH_MSG"
+                echo "$SHK_SH_EXIT_TIP"
+                open_shizuku_shell
                 ;;
             "e" | "exec" | "execute")
                 shift
-                execute_shk_command "$@"
+                execute_shizuku_command "$@"
                 ;;
         esac
         exit 0

@@ -1,27 +1,19 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-readonly TST_LIB_DIR="/data/data/com.termux/files/usr/libexec/shizuku"
-readonly TST_BIN="/data/data/com.termux/files/usr/bin/shizuku"
+readonly TST_LIB_DIR="$PREFIX/libexec/shizuku"
+readonly TST_BIN="$PREFIX/bin/shizuku"
 readonly TST_RISH_DEX="$TST_LIB_DIR/rish_shizuku.dex"
 
+source "$TST_LIB_DIR/tst_utils.sh"
+source "$TST_LIB_DIR/shizuku_lib.sh"
+source "$TST_LIB_DIR/shizuku_config.sh"
 
-if [ -f "$TST_LIB_DIR/shizuku_lib.sh" ]; then
-    source "$TST_LIB_DIR/shizuku_lib.sh"
-fi
-
-
-if [ -f "$TST_LIB_DIR/tst_utils.sh" ]; then
-    source "$TST_LIB_DIR/tst_utils.sh"
-else
-    echo "Error: tst_utils.sh not found in $TST_LIB_DIR"
-    exit 1
-fi
-
+get_shizuku_config > /dev/null
 
 chmod 755 "$TST_BIN"
 [ -f "$TST_RISH_DEX" ] && chmod 444 "$TST_RISH_DEX"
 
-ln -sf "$TST_BIN" "/data/data/com.termux/files/usr/bin/shk"
+ln -sf "$TST_BIN" "$PREFIX/bin/shk"
 
 case "$1" in
     configure)

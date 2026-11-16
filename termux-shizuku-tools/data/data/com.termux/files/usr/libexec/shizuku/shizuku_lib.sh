@@ -1,89 +1,103 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-SHK_LIB_DIR="$PREFIX/libexec/shizuku"
-RISH_DEX_NAME="rish_shizuku.dex"
-RISH_DEX_PATH="$SHK_LIB_DIR/$RISH_DEX_NAME"
-
-SHK_PKG="moe.shizuku.privileged.api"
-SHK_SERVER_PROC_NAME="shizuku_server"
+SHIZUKU_LIB_DIR="$PREFIX/libexec/shizuku"
+SHIZUKU_DEX_NAME="rish_shizuku.dex"
+SHIZUKU_DEX_PATH="$SHIZUKU_LIB_DIR/$SHIZUKU_DEX_NAME"
 TERMUX_PKG="com.termux"
-SHK_MAIN_ACTIVITY_CLASS="$SHK_PKG/moe.shizuku.manager.MainActivity"
+SHIZUKU_CHECK_STR="shizuku_server_check"
 
-SHK_CHECK_STR="shizuku_server_check"
+SHIZUKU_MAIN_ACTIVITY_CLASS="moe.shizuku.manager.MainActivity"
+SHIZUKU_SERVER_PROC_NAME="shizuku_server"
 
-export SHK_LIB_DIR RISH_DEX_NAME RISH_DEX_PATH SHK_PKG SHK_SERVER_PROC_NAME
+export SHIZUKU_LIB_DIR SHIZUKU_DEX_NAME SHIZUKU_DEX_PATH TERMUX_PKG SHIZUKU_CHECK_STR SHIZUKU_MAIN_ACTIVITY_CLASS SHIZUKU_SERVER_PROC_NAME
 
-is_shk_installed() {
-    if cmd package list packages --user $(( $(id -u) / 100000 )) | grep -q "package:$SHK_PKG"; then
-        echo "true"
+is_shizuku_installed() {
+    cmd package list packages --user $(( $(id -u) / 100000 )) | grep -q "^package:$(get_shizuku_pkg)$"
+}
+
+get_shizuku_pkg() {
+    source "$SHIZUKU_LIB_DIR/shizuku_config.sh"
+    get_shizuku_config_key "package"
+}
+
+get_shizuku_version_code() {
+    if is_shizuku_installed; then
+        cmd package list packages --show-versioncode --user $(( $(id -u) / 100000 )) | grep "package:$(get_shizuku_pkg) versionCode:" | awk -F':' '{print $NF}'
     else
-        echo "false"
+        return 1
     fi
 }
 
-get_shk_version_code() {
-    if [ "$(is_shk_installed)" = "true" ]; then
-        cmd package list packages --show-versioncode --user $(( $(id -u) / 100000 )) | grep "package:$SHK_PKG versionCode:" | awk -F':' '{print $NF}'
-    else
-        echo "-1"
-    fi
-}
-
-execute_shk_command() {
+execute_shizuku_command() {
     rish "$*"
 }
 
-open_shk_interactive_shell() {
+open_shizuku_shell() {
     rish
 }
 
-open_shk() {
-    am start -n $SHK_MAIN_ACTIVITY_CLASS > /dev/null 2>&1
+open_shizuku() {
+    am start -n "$(get_shizuku_pkg)/$SHIZUKU_MAIN_ACTIVITY_CLASS" > /dev/null 2>&1
 }
 
-stop_shk_server() {
-    execute_shk_command "kill \$(pidof $SHK_SERVER_PROC_NAME)"
+stop_shizuku_server() {
+    execute_shizuku_command "kill \$(pidof $SHIZUKU_SERVER_PROC_NAME)"
 }
 
-is_shk_server_running() {
-    local CMD_OUTPUT=$(execute_shk_command "echo $SHK_CHECK_STR" 2>&1)
-    
-    if [ "$CMD_OUTPUT" = "$SHK_CHECK_STR" ]; then
-        echo "true"
+is_shizuku_server_running() {
+    local CMD_OUTPUT
+    CMD_OUTPUT=$(execute_shizuku_command "echo $SHIZUKU_CHECK_STR" 2>&1)
+
+    printf '%s\n' "$CMD_OUTPUT" | grep -qxF "$SHIZUKU_CHECK_STR"
+}
+
+get_shizuku_uid() {
+    execute_shizuku_command "id -u"
+}
+
+get_shizuku_uid_name() {
+    local uid
+    if [ $# -gt 0 ]; then
+        uid="$1"
     else
-        echo "false"
+        uid="$(get_shizuku_uid)"
     fi
+
+    case "$uid" in
+        0)    printf '%s' "root"    ;;
+        1000) printf '%s' "system"  ;;
+        2000) printf '%s' "shell"   ;;
+        *)    printf '%s' "unknown" ;;
+    esac
 }
 
 rish() {
-    local DEX="$RISH_DEX_PATH"
+    local DEX="$SHIZUKU_DEX_PATH"
     
     if [ ! -f "$DEX" ]; then
         echo "Cannot find $DEX, please check the tutorial in Shizuku app"
         return 1
     fi
-    
 
     if [ $(getprop ro.build.version.sdk) -ge 34 ]; then
         if [ -w "$DEX" ]; then
-            echo "On Android 14+, app_process cannot load writable dex."
-            echo "Attempting to remove the write permission..."
             chmod 400 "$DEX"
-        fi
-        if [ -w "$DEX" ]; then
-            echo "Cannot remove the write permission of $DEX."
-            echo "You can copy to file to terminal app's private directory (/data/data/<package>), so that remove write permission is possible"
-            return 1
         fi
     fi
     
-    [ -z "$RISH_APPLICATION_ID" ] && export RISH_APPLICATION_ID="$TERMUX_PKG"
-    
+    [ -z "$RISH_APPLICATION_ID" ] && RISH_APPLICATION_ID="$TERMUNCH_PKG"
+    local mgr_pkg
+    mgr_pkg="$(get_shizuku_pkg)"
 
     if [ $# -eq 0 ]; then
+        RISH_APPLICATION_ID="$RISH_APPLICATION_ID" MANAGER_APPLICATION_ID="$mgr_pkg" \
         /system/bin/app_process -Djava.class.path="$DEX" /system/bin --nice-name=rish rikka.shizuku.shell.ShizukuShellLoader
     else
         local cmd="$*"
-        /system/bin/app_process -Djava.class.path="$DEX" /system/bin --nice-name=rish rikka.shizuku.shell.ShizukuShellLoader -c "$cmd"
+        local output
+        output="$(RISH_APPLICATION_ID="$RISH_APPLICATION_ID" MANAGER_APPLICATION_ID="$mgr_pkg" \
+             /system/bin/app_process -Djava.class.path="$DEX" /system/bin --nice-name=rish rikka.shizuku.shell.ShizukuShellLoader -c "$cmd" 2>&1)"
+        
+        printf '%s\n' "$output" | sed '1{/^Entering shell...$/d}'
     fi
 }

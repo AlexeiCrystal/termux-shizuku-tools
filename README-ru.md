@@ -9,7 +9,7 @@
 [![Build package on push](https://github.com/AlexeiCrystal/termux-shizuku-tools/actions/workflows/build-den-on-push.yml/badge.svg)](https://github.com/AlexeiCrystal/termux-shizuku-tools/actions/workflows/build-den-on-push.yml)
 
 # Описание
-Утилиты для управления [Shizuku](https://github.com/RikkaApps/Shizuku) в [Termux](https://github.com/termux/termux-app)
+Утилиты для [Shizuku](https://github.com/RikkaApps/Shizuku) в [Termux](https://github.com/termux/termux-app)
 
 # Требования
 - Установленное и запущенное приложение [Shizuku](https://github.com/RikkaApps/Shizuku)
@@ -24,15 +24,9 @@
   </a>
 </p>
 
-2. Перейдите в каталог, куда был скачан файл  
-Например:  
+2. Установите пакет:  
 ```
-cd /sdcard/Download
-```
-3. Установите пакет  
-Например:  
-```
-dpkg -i termux-shizuku-tools_4.1.deb
+dpkg -i termux-shizuku-tools_5.0.deb
 ```
 
 ## Через Termux Hub
@@ -52,17 +46,24 @@ dpkg -i termux-shizuku-tools_4.1.deb
 Использование: shizuku, shk <команда>
 
 Команды:
-  info, i              - Показать статус Shizuku
+  status, st, i, info  - Показать статус Shizuku
   open, o              - Открыть Shizuku
   stop, s              - Остановить сервер Shizuku
   execute, exec, e     - Выполнить команду через Shizuku
   shell, sh            - Запустить интерактивную оболочку Shizuku
+  config, cfg
+    get                - Получить конфиг
+    get key            - Получить ключ конфига
+    set key value      - Установить ключ конфига
+    reset              - Сбросить конфиг
+    reset key          - Сбросить ключ конфига
   help, h              - Показать эту справку
-  version, v           - Показать версию
+  version, v           - Показать версию утилиты
 
 Примеры:
   shizuku info
   shizuku exec "pm list packages"
+  shizuku config set package ваш.кастомный.пакет.shizuku
   shizuku shell
 ```
 
@@ -72,24 +73,15 @@ dpkg -i termux-shizuku-tools_4.1.deb
 ```
 git clone https://github.com/AlexeiCrystal/termux-shizuku-tools.git
 ```
-2. Выполните скрипт `build.sh` в корне репозитотория  
-Например:  
+2. Соберите пакет:  
 ```
-bash /sdcard/Download/termux-shizuku-tools-main/build.sh
-```
-Или:  
-```
-bash /sdcard/Download/termux-shizuku-tools/build.sh
+make package
 ```
 
 3. Установите пакет  
 Например:  
 ```
-dpkg -i /sdcard/Download/termux-shizuku-tools-main/termux-shizuku-tools.deb
-```
-Или:  
-```
-dpkg -i /sdcard/Download/termux-shizuku-tools/termux-shizuku-tools.deb
+dpkg -i termux-shizuku-tools.deb
 ```
 
 # История звёзд
